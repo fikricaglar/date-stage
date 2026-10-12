@@ -16,6 +16,9 @@ name: Slack yayın bildirimi
 on:
   push:
     branches: [main]
+    # Yalnız iş akışı dosyası değişen gönderim yayın değildir — Slack'e sahte
+    # "güncellendi" düşmesin (KAN-334 değişikliğiyle eklendi).
+    paths-ignore: [".github/**"]
   workflow_dispatch: # elle deneme için
 
 permissions:
@@ -61,7 +64,10 @@ jobs:
         run: |
           set -euo pipefail
           baslik=$(git log -1 --pretty=%s)
-          govde=$(git log -1 --pretty=%b | sed '/^Co-Authored-By:/d' | sed '/^[[:space:]]*$/d')
+          # KAN-334: her madde " — Nerede: Modül n Ad · Adım x/y" taşır (yayın notu denetimden
+          # geçer). Konum ayrı satıra, 📍 ile ve italik alınır — PM nerede deneyeceğini görür.
+          govde=$(git log -1 --pretty=%b | sed '/^Co-Authored-By:/d' | sed '/^[[:space:]]*$/d' \
+            | perl -pe 's/ — Nerede: (.*)$/\n      📍 _$1_/')
           # Ay adı koşucunun yerel ayarına göre İNGİLİZCE gelir; sayısal biçim
           # dilden bağımsız ve PM için okunaklıdır.
           tarih=$(TZ=Europe/Istanbul date '+%d.%m.%Y %H:%M')
