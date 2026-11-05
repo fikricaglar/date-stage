@@ -72,6 +72,14 @@ jobs:
           # dilden bağımsız ve PM için okunaklıdır.
           tarih=$(TZ=Europe/Istanbul date '+%d.%m.%Y %H:%M')
           kisa_sha=$(git rev-parse --short HEAD)
+          # Slack'te bir bölüm (section) en çok 3000 karakter alır; uzun not tek bölümde
+          # gönderilince 400 invalid_blocks dönüyordu (2026-11-05). Gövde SATIR sınırından
+          # ~2800 karakterlik parçalara bölünür, her parça ayrı bölüm olur.
+          printf '%s' "$govde" | perl -CS -ne '
+            BEGIN { $p = "" }
+            if (length($p) + length($_) > 2800 && length($p) > 0) { print $p, "\x1e"; $p = "" }
+            $p .= $_;
+            END { print $p }' > govde.txt
 
           case "$DURUM" in
             built)   durum_satiri="✅ Yayın tamamlandı" ;;
@@ -82,7 +90,7 @@ jobs:
           # Payload jq ile kurulur: tırnak/satır sonu kaçışları elle yazılmaz.
           jq -n \
             --arg baslik "$baslik" \
-            --arg govde "$govde" \
+            --rawfile govde govde.txt \
             --arg tarih "$tarih" \
             --arg sha "$kisa_sha" \
             --arg durum "$durum_satiri" \
@@ -91,9 +99,8 @@ jobs:
               blocks: [
                 {type: "header", text: {type: "plain_text", text: "📦 date-stage güncellendi", emoji: true}},
                 {type: "section", text: {type: "mrkdwn", text: ("*" + $baslik + "*")}},
-                (if ($govde | length) > 0
-                  then {type: "section", text: {type: "mrkdwn", text: $govde}}
-                  else empty end),
+                ($govde | split("\u001e") | .[] | select(length > 0)
+                  | {type: "section", text: {type: "mrkdwn", text: .}}),
                 {type: "section", text: {type: "mrkdwn",
                   text: ("<https://fikricaglar.github.io/date-stage/|🔗 Uygulamayı aç>  ·  " + $durum)}},
                 {type: "context", elements: [{type: "mrkdwn", text: ($tarih + "  ·  sürüm `" + $sha + "`")}]}
