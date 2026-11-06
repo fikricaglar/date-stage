@@ -1,1 +1,15 @@
-Son yayın notu: 2026-11-05 — PM kararı bekleyen konular ve sıradaki işler (yeniden gönderim)
+Hazır emoji setleri: ücretsiz ve ücretli kaynaklar (6 Kasım)
+
+Ekranda bir değişiklik yok. Uygulamadaki resimler için incelediğimiz hazır emoji setlerinin bağlantıları aşağıda. Bugün uygulamada kendi çizimlerimiz (date Çizimleri) ve gerçek fotoğraflar kullanılıyor (karar 62).
+
+Ücretsiz setler:
+- Fluent Emoji (Microsoft): ücretsiz, ticari kullanım serbest, yıllık ödeme yok. Ücretsizler içinde Apple görünümüne en yakın olanı. https://github.com/microsoft/fluentui-emoji — Nerede: Tüm bölümler
+- Noto Emoji (Google): ücretsiz, ticari kullanım serbest. https://github.com/googlefonts/noto-emoji — Nerede: Tüm bölümler
+- OpenMoji: ücretsiz; kullanırken kaynak gösterme ve aynı koşullarla paylaşma şartı var. https://openmoji.org/faq — Nerede: Tüm bölümler
+- Twemoji (eski Twitter seti): ücretsiz; kaynak gösterme şartı var. https://github.com/jdecked/twemoji — Nerede: Tüm bölümler
+
+Ücretli setler:
+- JoyPixels: yıllık abonelik. Premium yılda 240 $ (ayda 50 indirme sınırı), Pro yılda 480 $, Enterprise teklifle. Abonelik biterse yeni sürümlerden resimler çıkarılmalı; stage'in herkese açık olması için JoyPixels'ten yazılı onay gerekir. Fiyatlar: https://joypixels.com/pricing · Lisans: https://joypixels.com/license · Setin tamamı: https://emojipedia.org/joypixels — Nerede: Tüm bölümler
+- Apple emojileri: satın alınamıyor, lisans programı yok. https://blog.emojipedia.org/apples-emoji-crackdown/ — Nerede: Tüm bölümler
+
+Fiyatlar önceki araştırmamızdan; satın almadan önce sayfadan yeniden kontrol edilmeli.
