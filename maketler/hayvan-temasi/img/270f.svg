@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>kalem</title>
+<defs>
+<radialGradient id="e270f-s"><stop offset="0" stop-color="#4A2A10" stop-opacity=".28"/><stop offset="1" stop-color="#4A2A10" stop-opacity="0"/></radialGradient>
+<linearGradient id="e270f-b" x1="0" x2="1"><stop offset="0" stop-color="#FFF6A0"/><stop offset=".3" stop-color="#FFF08A"/><stop offset=".32" stop-color="#FFD84D"/><stop offset=".66" stop-color="#FFD84D"/><stop offset=".68" stop-color="#EAAE18"/><stop offset="1" stop-color="#C98A10"/></linearGradient>
+<linearGradient id="e270f-e" x1="0" x2="1"><stop offset="0" stop-color="#FFC0D0"/><stop offset=".35" stop-color="#FF8AA6"/><stop offset="1" stop-color="#D04870"/></linearGradient>
+<linearGradient id="e270f-m" x1="0" x2="1"><stop offset="0" stop-color="#FAFBFF"/><stop offset=".35" stop-color="#D3D8EC"/><stop offset="1" stop-color="#7C84A6"/></linearGradient>
+<linearGradient id="e270f-w" x1="0" x2="1"><stop offset="0" stop-color="#FFE7C0"/><stop offset=".5" stop-color="#F2C88E"/><stop offset="1" stop-color="#C8904E"/></linearGradient>
+<linearGradient id="e270f-g" x1="0" x2="1"><stop offset="0" stop-color="#5A5470"/><stop offset="1" stop-color="#16121F"/></linearGradient>
+</defs>
+<ellipse cx="62" cy="112" rx="44" ry="5" fill="url(#e270f-s)"/>
+<g transform="translate(-2 -2) rotate(45 64 64)">
+<path d="M53 88Q56.7 92 60.3 88Q64 92 67.7 88Q71.3 92 75 88L64 118Z" fill="url(#e270f-w)"/>
+<path d="M60 107L64 118L68 107Z" fill="url(#e270f-g)"/>
+<rect x="53" y="28" width="22" height="61" fill="url(#e270f-b)"/>
+<path d="M53 10C53 6 56 4 60 4H68C72 4 75 6 75 10V20H53Z" fill="url(#e270f-e)"/>
+<rect x="52" y="18" width="24" height="12" rx="2" fill="url(#e270f-m)"/>
+<path d="M53 22H75M53 26H75" stroke="#8C93B4" stroke-width="1.4" opacity=".7"/>
+<path d="M56 34V84" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".6"/>
+</g>
+</svg>

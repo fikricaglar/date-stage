@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>uğur böceği</title>
+<defs>
+<radialGradient id="e1f41e-s"><stop offset="0" stop-color="#3B1E14" stop-opacity=".3"/><stop offset="1" stop-color="#3B1E14" stop-opacity="0"/></radialGradient>
+<radialGradient id="e1f41e-b" cx=".38" cy=".3" r=".8" fx=".32" fy=".22"><stop offset="0" stop-color="#FF907E"/><stop offset=".4" stop-color="#F23B3B"/><stop offset=".85" stop-color="#C8171F"/><stop offset="1" stop-color="#8A0B15"/></radialGradient>
+<radialGradient id="e1f41e-r" cx=".7" cy=".94" r=".42"><stop offset="0" stop-color="#FF8A7A" stop-opacity=".6"/><stop offset="1" stop-color="#FF8A7A" stop-opacity="0"/></radialGradient>
+<radialGradient id="e1f41e-f" cx=".38" cy=".3" r=".8"><stop offset="0" stop-color="#5E5872"/><stop offset=".55" stop-color="#2E2A3C"/><stop offset="1" stop-color="#14111E"/></radialGradient>
+<radialGradient id="e1f41e-e" cx=".35" cy=".3" r=".75"><stop offset="0" stop-color="#5A4A3E"/><stop offset="1" stop-color="#16100C"/></radialGradient>
+<radialGradient id="e1f41e-k"><stop offset="0" stop-color="#FF8FA3" stop-opacity=".7"/><stop offset="1" stop-color="#FF8FA3" stop-opacity="0"/></radialGradient>
+<radialGradient id="e1f41e-h"><stop offset="0" stop-color="#fff" stop-opacity=".85"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="64" cy="114" rx="40" ry="6" fill="url(#e1f41e-s)"/>
+<g fill="none" stroke="#2E2A3C" stroke-width="4" stroke-linecap="round"><path d="M26 70L16 66M24 88L14 92M102 70L112 66M104 88L114 92"/><path d="M54 22C50 14 44 10 38 11M74 22C78 14 84 10 90 11" stroke-width="3"/></g>
+<circle cx="37" cy="11" r="4" fill="#2E2A3C"/><circle cx="91" cy="11" r="4" fill="#2E2A3C"/>
+<ellipse cx="64" cy="76" rx="42" ry="35" fill="url(#e1f41e-b)"/>
+<ellipse cx="64" cy="76" rx="42" ry="35" fill="url(#e1f41e-r)"/>
+<path d="M64 50V110" stroke="#6A0A12" stroke-width="2.4" stroke-linecap="round" opacity=".7"/>
+<g fill="#2E2A3C"><circle cx="40" cy="72" r="7.5"/><circle cx="88" cy="72" r="7.5"/><circle cx="47" cy="96" r="6.5"/><circle cx="81" cy="96" r="6.5"/><circle cx="34" cy="56" r="4.5"/><circle cx="94" cy="56" r="4.5"/></g>
+<ellipse cx="38" cy="60" rx="12" ry="6" transform="rotate(-30 38 60)" fill="url(#e1f41e-h)" opacity=".7"/>
+<ellipse cx="84" cy="56" rx="7" ry="3.4" transform="rotate(-20 84 56)" fill="#fff" opacity=".4"/>
+<ellipse cx="64" cy="40" rx="25" ry="21" fill="url(#e1f41e-f)"/>
+<g fill="#fff"><ellipse cx="54" cy="38" rx="6.6" ry="7.6"/><ellipse cx="74" cy="38" rx="6.6" ry="7.6"/></g>
+<ellipse cx="55" cy="39.4" rx="4.2" ry="5.2" fill="url(#e1f41e-e)"/><ellipse cx="75" cy="39.4" rx="4.2" ry="5.2" fill="url(#e1f41e-e)"/>
+<circle cx="53.6" cy="37.4" r="1.6" fill="#fff"/><circle cx="73.6" cy="37.4" r="1.6" fill="#fff"/>
+<ellipse cx="45" cy="49" rx="5.5" ry="3.6" fill="url(#e1f41e-k)"/><ellipse cx="83" cy="49" rx="5.5" ry="3.6" fill="url(#e1f41e-k)"/>
+<path d="M58 50C61 53.4 67 53.4 70 50" fill="none" stroke="#FFC0D5" stroke-width="2" stroke-linecap="round"/>
+<ellipse cx="55" cy="26" rx="8" ry="3.6" transform="rotate(-18 55 26)" fill="#fff" opacity=".3"/>
+</svg>

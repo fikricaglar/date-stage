@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>havuç</title>
+<defs>
+<radialGradient id="e1f955-s"><stop offset="0" stop-color="#4A2410" stop-opacity=".3"/><stop offset="1" stop-color="#4A2410" stop-opacity="0"/></radialGradient>
+<linearGradient id="e1f955-b" x1="0" x2="1"><stop offset="0" stop-color="#FFB25A"/><stop offset=".35" stop-color="#FF8A26"/><stop offset=".8" stop-color="#E5600E"/><stop offset="1" stop-color="#B9440A"/></linearGradient>
+<linearGradient id="e1f955-g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A8EC66"/><stop offset=".5" stop-color="#4DB33D"/><stop offset="1" stop-color="#22792B"/></linearGradient>
+<linearGradient id="e1f955-d" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#2E8A33"/><stop offset="1" stop-color="#7FD456"/></linearGradient>
+<radialGradient id="e1f955-h"><stop offset="0" stop-color="#fff" stop-opacity=".8"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<ellipse cx="58" cy="114" rx="34" ry="5.5" fill="url(#e1f955-s)"/>
+<g transform="rotate(35 64 64)">
+<path d="M61 40C50 30 45 18 49 6C60 12 66 25 65 38Z" fill="url(#e1f955-d)"/>
+<path d="M66 41C70 27 80 19 93 19C93 31 83 40 70 43Z" fill="url(#e1f955-d)"/>
+<path d="M62 40C59 26 63 13 72 4C81 14 77 29 68 41Z" fill="url(#e1f955-g)"/>
+<path d="M44 46C44 36 84 36 84 46C84 68 73 100 66 117C65 119 63 119 62 117C55 100 44 68 44 46Z" fill="url(#e1f955-b)"/>
+<g fill="none" stroke="#B9440A" stroke-width="2.2" stroke-linecap="round" opacity=".5"><path d="M46 60C50 62 54 62 57 61"/><path d="M72 72C75 73 78 73 81 71"/><path d="M53 86C56 88 59 88 62 87"/><path d="M66 100C68 101 70 101 72 100"/></g>
+<ellipse cx="53" cy="62" rx="4" ry="16" fill="url(#e1f955-h)"/>
+</g>
+</svg>

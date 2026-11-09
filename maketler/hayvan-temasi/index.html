@@ -1,0 +1,425 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hayvan Teması Maketi</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:42 27 74; --soft:107 90 140; --b50:242 239 254; --b100:230 224 253; --b500:124 107 245; --b700:90 69 214;
+  --acc:176 107 245; --sun:255 203 69; --mint:87 217 176; --coral:255 139 107;
+  --bg:linear-gradient(165deg,#efe9ff 0%,#f7f1ff 45%,#fff4ea 100%);
+  --page:#f6f5f8; --text:#1f1d24; --muted:#5d5a66; --line:#e3e1e8; --card:#fff;
+  --ok:#1f7a4d; --okbg:#e5f5ec; --warn:#8a5a00; --warnbg:#fff3d6; --no:#a12a2a; --nobg:#fde8e8;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){ --page:#16151a; --text:#ecebf0; --muted:#a8a5b2; --line:#2e2c35; --card:#1f1e25;
+    --okbg:#163626; --ok:#7fd8a8; --warnbg:#3a2e10; --warn:#f3c96b; --nobg:#3a1717; --no:#f2a0a0; }
+}
+:root[data-theme="dark"]{ --page:#16151a; --text:#ecebf0; --muted:#a8a5b2; --line:#2e2c35; --card:#1f1e25;
+  --okbg:#163626; --ok:#7fd8a8; --warnbg:#3a2e10; --warn:#f3c96b; --nobg:#3a1717; --no:#f2a0a0; }
+*{box-sizing:border-box}
+body{margin:0;background:var(--page);color:var(--text);font:16px/1.55 system-ui,-apple-system,"Segoe UI",sans-serif}
+.wrap{max-width:1180px;margin:0 auto;padding:28px 16px 80px}
+h1{font-size:28px;line-height:1.2;margin:0 0 6px}
+h2{font-size:21px;margin:0 0 4px}
+.lead{color:var(--muted);max-width:760px;margin:0 0 18px}
+.taslak{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.02em;padding:2px 8px;border-radius:99px;background:var(--warnbg);color:var(--warn);vertical-align:middle}
+.ilke{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 18px;margin:18px 0 28px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.ilke b{display:block;margin-bottom:2px}
+.ilke p{margin:0;color:var(--muted);font-size:14.5px}
+.secici{position:sticky;top:0;z-index:5;background:var(--page);padding:10px 0;border-bottom:1px solid var(--line);margin-bottom:26px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.secici span{font-size:14px;color:var(--muted);margin-right:4px}
+.secici button{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:var(--card);color:var(--text);border-radius:99px;padding:5px 12px 5px 6px;font:600 14px system-ui;cursor:pointer;min-height:40px}
+.secici button img{width:28px;height:28px}
+.secici button[aria-pressed="true"]{border-color:rgb(var(--b500));box-shadow:0 0 0 2px rgb(var(--b500) / .35)}
+section.bolum{margin:0 0 44px}
+.bolum-bas{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:baseline;margin-bottom:6px}
+.etki{font-size:12.5px;font-weight:700;padding:2px 9px;border-radius:99px}
+.etki.ok{background:var(--okbg);color:var(--ok)} .etki.dikkat{background:var(--warnbg);color:var(--warn)}
+.sira{display:flex;gap:22px;overflow-x:auto;padding:8px 2px 14px;scroll-snap-type:x mandatory}
+figure{margin:0;flex:0 0 auto;scroll-snap-align:start}
+figcaption{font-size:13.5px;color:var(--muted);margin-top:8px;max-width:270px}
+figcaption b{color:var(--text)}
+.oneri-not{font-size:14.5px;color:var(--muted);max-width:820px;margin:4px 0 0}
+.oneri-not li{margin-bottom:3px}
+
+/* ---- telefon çerçevesi (ürün görünümü) ---- */
+.tel{width:270px;height:540px;border-radius:30px;border:6px solid #23212a;background:var(--bg);position:relative;overflow:hidden;
+  font-family:"Baloo 2",system-ui,sans-serif;color:rgb(var(--ink));box-shadow:0 10px 30px rgb(0 0 0 / .12)}
+.tel .etiket{position:absolute;top:8px;left:8px;z-index:9;font:700 11px system-ui;background:#23212a;color:#fff;border-radius:99px;padding:2px 8px}
+.tel .etiket.yeni{background:rgb(var(--b500))}
+.sahne-ic{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:34px 14px 14px}
+.logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:26px;line-height:1}
+.logo img{width:28px}
+.alt-baslik{font-size:12px;font-weight:700;color:rgb(var(--soft, 107 90 140));opacity:.85;margin-top:2px}
+.bolum-satir{font-size:12px;font-weight:700;opacity:.75;margin-top:10px}
+.noktalar{display:flex;gap:4px;margin:6px 0 10px;width:88%}
+.noktalar i{flex:1;height:5px;border-radius:9px;background:rgb(var(--b100))}
+.noktalar i.on{background:rgb(var(--b500))}
+.kart{width:100%;background:#fff;border-radius:22px;box-shadow:0 8px 22px rgb(var(--b500) / .16);position:relative;overflow:hidden;
+  display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 14px 16px;gap:8px}
+.isima{position:absolute;inset:-60px 0 auto 0;height:120px;filter:blur(22px);background:linear-gradient(rgb(var(--sun) / .5),transparent);pointer-events:none}
+.madalyon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(rgb(var(--sun) / .6),rgb(var(--sun) / .25));
+  box-shadow:0 4px 10px rgb(0 0 0 / .08);border:4px solid #fff;position:relative}
+.madalyon img{width:34px}
+.madalyon.buyuk{width:92px;height:92px;background:linear-gradient(rgb(var(--b100)),rgb(var(--b50)))}
+.madalyon.buyuk img{width:62px}
+.k-bas{font-weight:800;font-size:18px;line-height:1.15}
+.k-alt{font-weight:700;font-size:13px;color:rgb(var(--ink) / .62);line-height:1.3}
+.dugme{margin-top:4px;background:rgb(var(--b500));color:#fff;font-weight:800;font-size:15px;border-radius:99px;padding:8px 22px;box-shadow:0 4px 0 rgb(var(--b700))}
+.rozet{border:2px dashed rgb(var(--sun));background:rgb(var(--sun) / .18);border-radius:99px;padding:1px 12px;font-weight:800;font-size:12.5px;display:inline-flex;gap:5px;align-items:center}
+.rozet img{width:14px}
+.cip{position:absolute;top:30px;left:10px;background:#fff;border-radius:14px;padding:5px 10px;font-size:11px;line-height:1.25;font-weight:700;box-shadow:0 4px 12px rgb(var(--b500) / .15);text-align:left;z-index:3}
+.cip b{font-size:12.5px;font-weight:800;display:block}
+.ses{position:absolute;top:30px;right:10px;width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 12px rgb(var(--b500) / .15);z-index:3}
+.ses svg{width:18px;stroke:rgb(var(--b700))}
+.raf{display:grid;grid-template-columns:repeat(4,1fr);gap:7px;width:100%;margin-top:auto;margin-bottom:auto}
+.raf div{aspect-ratio:1;background:#fff;border-radius:12px;display:grid;place-items:center;box-shadow:0 3px 8px rgb(var(--b500) / .1)}
+.raf div img{width:62%}
+.raf div.secili{outline:3px solid rgb(var(--b500))}
+.dok{width:100%;margin-top:auto;display:flex;align-items:center;gap:8px}
+.dok .cizgi{flex:1;height:6px;border-radius:9px;background:rgb(var(--b100));overflow:hidden}
+.dok .cizgi i{display:block;height:100%;width:60%;background:rgb(var(--b500))}
+.dok .ileri{background:rgb(var(--b500));color:#fff;font-weight:800;border-radius:99px;padding:4px 14px;font-size:13px}
+.soru{font-weight:800;font-size:19px;margin-top:40px;text-align:center;line-height:1.15}
+
+/* yardımcı */
+.yard{position:absolute;z-index:4}
+.yard img{width:100%;display:block;filter:drop-shadow(0 4px 6px rgb(0 0 0 / .15))}
+.balon{position:absolute;background:#fff;border-radius:14px;padding:6px 10px;font-weight:700;font-size:12px;line-height:1.25;box-shadow:0 4px 12px rgb(0 0 0 / .1);z-index:5}
+.balon::after{content:"";position:absolute;width:10px;height:10px;background:#fff;transform:rotate(45deg)}
+.balon.sol-alt::after{left:14px;bottom:-4px}
+.balon.sag::after{left:-4px;top:12px}
+.zipla{animation:zipla 1.6s ease-in-out infinite}
+@keyframes zipla{0%,100%{transform:translateY(0)}40%{transform:translateY(-10px) rotate(-4deg)}60%{transform:translateY(0) rotate(3deg)}}
+.nefes{animation:nefes 2.4s ease-in-out infinite}
+@keyframes nefes{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+.el-salla{animation:salla 1.8s ease-in-out infinite;transform-origin:50% 90%}
+@keyframes salla{0%,100%{transform:rotate(0)}25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.goz-at{animation:gozat 3.2s ease-in-out infinite}
+@keyframes gozat{0%,100%{transform:translateY(18px)}20%,80%{transform:translateY(0)}}
+@media (prefers-reduced-motion: reduce){ .zipla,.nefes,.el-salla,.goz-at{animation:none} }
+
+/* patika */
+.patika{width:100%;height:84px;position:relative;margin:2px 0}
+.patika svg{width:100%;height:100%;overflow:visible}
+.patika .yurur{position:absolute;width:36px;transition:left .6s}
+
+/* hatıralar */
+.hatira-sira{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
+.hatira{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:rgb(var(--b50));border:2px dashed rgb(var(--b100))}
+.hatira.var{border:2px solid #fff;background:linear-gradient(rgb(var(--sun) / .55),rgb(var(--sun) / .2));box-shadow:0 2px 5px rgb(0 0 0 / .08)}
+.hatira svg{width:16px;height:16px}
+.hatira.yeni{animation:parla 1.4s ease-in-out infinite}
+@keyframes parla{0%,100%{box-shadow:0 0 0 0 rgb(var(--sun) / .0)}50%{box-shadow:0 0 0 6px rgb(var(--sun) / .45)}}
+@media (prefers-reduced-motion: reduce){ .hatira.yeni{animation:none} }
+
+/* arka plan dünya katmanı */
+.dunya{position:absolute;inset:0;pointer-events:none;z-index:0}
+.dunya svg{position:absolute;inset:0;width:100%;height:100%}
+.dunya.soluk{opacity:.4}
+.dunya.kenar{-webkit-mask:linear-gradient(#000 0 12%,transparent 30% 78%,#000 92%);mask:linear-gradient(#000 0 12%,transparent 30% 78%,#000 92%)}
+.sahne-ic>*{position:relative;z-index:1}
+.sahne-ic>.cip,.sahne-ic>.ses,.sahne-ic>.yard,.sahne-ic>.balon{position:absolute}
+.sahne-ic>.yard,.sahne-ic>.balon{z-index:5}
+
+.sorular{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:16px 20px}
+.sorular ol{margin:6px 0 0;padding-left:20px}
+.sorular li{margin-bottom:6px}
+.tablo{width:100%;border-collapse:collapse;font-size:14.5px;background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.tablo th,.tablo td{text-align:left;padding:9px 12px;border-bottom:1px solid var(--line);vertical-align:top}
+.tablo th{font-size:13px;color:var(--muted);font-weight:700}
+.tablo-kap{overflow-x:auto}
+.kaynak{font-size:13px;color:var(--muted)}
+.kaynak a{color:inherit}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Hayvan teması tarama boyunca <span class="taslak">TASLAK · PM onayı bekler</span></h1>
+  <p class="lead">Çocuğun seçtiği hayvan bugün yalnız tanışma kartında, renklerde ve Mini Market hikayesinde görünüyor. Bu maket, hayvanın taramanın tamamında yanında hissedilmesi için altı öneriyi gösterir. Üstten hayvan seçerek her temada nasıl görüneceğine bakabilirsiniz.</p>
+
+  <div class="ilke" role="note">
+    <div><b>1. Ara anlar hayvanın, soru anı çocuğun</b><p>Hayvan geçiş, alıştırma ve bekleme ekranlarında belirgin. Gerçek soru ekranında hareket ve arka plan resmi yok: süslü ortam çocukların dikkatini dağıtır, ölçülen de tam olarak dikkat.</p></div>
+    <div><b>2. Ödül başarıya bağlı değil</b><p>Toplanan hatıralar ve kutlamalar her çocukta aynı. Doğru ya da yanlış cevaba göre değişmez; böylece çocuk "yanlış yaptım" diye geri çekilmez ve ölçüm etkilenmez.</p></div>
+    <div><b>3. Ses ve metin standardı değişmez</b><p>Soru ve hikaye sesleri herkes için aynı kalır. Hayvana özgü olan yalnız resim, renk ve kısa ara cümleler. Hareket kapatıldığında (cihaz ayarı) hayvan durur.</p></div>
+  </div>
+
+  <div class="secici" role="group" aria-label="Hayvan seç">
+    <span>Hayvan:</span>
+  </div>
+
+  <!-- 1. GEÇİŞ -->
+  <section class="bolum" id="gecis">
+    <div class="bolum-bas"><h2>1. Bölüm geçişinde hayvan kendini gösterir</h2><span class="etki ok">Ölçüme etkisi yok</span></div>
+    <p class="oneri-not">Bugün bölüm bitince ortada bir balon resmi var. Öneride madalyonda seçilen hayvan zıplar ve kısa bir cümle söyler. İsterseniz alttaki noktalar yerine hayvanın yürüdüğü küçük bir patika gelir (her bölüm bir durak).</p>
+    <div class="sira" data-ciz="gecis"></div>
+  </section>
+
+  <!-- 2. ALIŞTIRMA -->
+  <section class="bolum" id="alistirma">
+    <div class="bolum-bas"><h2>2. Alıştırmada hayvan yanında durur</h2><span class="etki ok">Ölçüme etkisi yok</span></div>
+    <p class="oneri-not">Alıştırma, çocuğun oyunu denediği bölüm; burada hayvan sol alt köşeden gözükür ve "Birlikte deneyelim!" der. Gerçek sorular başlayınca hayvan köşedeki çipe küçülür ve hareketsiz kalır. Böylece çocuk "ne zaman deneme, ne zaman gerçek" farkını da hayvandan okur.</p>
+    <div class="sira" data-ciz="alistirma"></div>
+  </section>
+
+  <!-- 3. ARKA PLAN -->
+  <section class="bolum" id="arkaplan">
+    <div class="bolum-bas"><h2>3. Hayvanın dünyası arka plan resmi olur</h2><span class="etki dikkat">Soru ekranında dikkat</span></div>
+    <p class="oneri-not">Her hayvanın kendi dünyası çizilir: baykuşa gece gökyüzü, sincaba orman, ahtapota mercan, yunusa dalgalar, koalaya okaliptüs, uğur böceğine çayır. Önerimiz: resim geçiş ve alıştırma ekranlarında tam görünsün, gerçek soru ekranında yalnız üst ve alt kenarda çok soluk kalsın ya da hiç olmasın. Üç seçenek yan yana:</p>
+    <div class="sira" data-ciz="arkaplan"></div>
+  </section>
+
+  <!-- 4. HATIRA -->
+  <section class="bolum" id="hatira">
+    <div class="bolum-bas"><h2>4. Ek öneri: her bölümden bir hatıra</h2><span class="etki ok">Ölçüme etkisi yok</span></div>
+    <p class="oneri-not">Her bölüm bitince hayvan çocuğa kendi dünyasından küçük bir hatıra verir (baykuşta ay, sincapta fındık, ahtapotta deniz kabuğu…). Yedi bölüm, yedi hatıra; tarama sonunda hepsi birlikte görünür. Hatıra cevaba göre değişmez, her çocuk aynısını alır. Hatıralar sorularda geçen nesnelerden seçilmez.</p>
+    <div class="sira" data-ciz="hatira"></div>
+  </section>
+
+  <!-- 5. BEKLEME + DÖNÜŞ -->
+  <section class="bolum" id="bekleme">
+    <div class="bolum-bas"><h2>5. Ek öneri: bekleme ve dönüş ekranlarında hayvan</h2><span class="etki ok">Ölçüme etkisi yok</span></div>
+    <p class="oneri-not">"Rapor hazırlanıyor…" ve yarım kalan taramaya dönüş kartı bugün genel simgelerle çiziliyor. Öneride hayvan bekler gibi sakince nefes alır; dönüşte "Tekrar hoş geldin!" der. Sonda da el sallayarak veda eder.</p>
+    <div class="sira" data-ciz="bekleme"></div>
+  </section>
+
+  <!-- ÖZET TABLO -->
+  <section class="bolum">
+    <h2>Özet</h2>
+    <div class="tablo-kap" style="margin-top:10px">
+    <table class="tablo">
+      <thead><tr><th>Öneri</th><th>Nerede</th><th>Soru ekranına girer mi</th><th>İş büyüklüğü</th><th>Önerimiz</th></tr></thead>
+      <tbody>
+        <tr><td>1. Geçişte hayvan</td><td>Alıştırma girişi, alıştırma bitti, bölüm bitti</td><td>Hayır</td><td>Küçük</td><td><b>Yapalım</b></td></tr>
+        <tr><td>1b. Patika</td><td>Bölüm bitti kartı</td><td>Hayır</td><td>Orta (her dünyaya patika çizimi)</td><td>Yapalım, ikinci adım</td></tr>
+        <tr><td>2. Alıştırmada yanında</td><td>Alıştırma soruları</td><td>Yalnız alıştırmada; gerçek soruda köşe çipinde, hareketsiz</td><td>Küçük</td><td><b>Yapalım</b></td></tr>
+        <tr><td>3. Arka plan resmi</td><td>Geçiş ve alıştırma ekranları</td><td>Önerimiz: hayır (ya da kenarda çok soluk)</td><td>Orta (6 dünya çizimi)</td><td>Ara ekranlarda yapalım; soru ekranı PM kararı</td></tr>
+        <tr><td>4. Hatıra</td><td>Bölüm bitti, tarama sonu</td><td>Hayır</td><td>Orta (6×7 küçük çizim)</td><td>Yapalım</td></tr>
+        <tr><td>5. Bekleme, dönüş, veda</td><td>Bekleme ve dönüş kartları, son ekran</td><td>Hayır</td><td>Küçük</td><td>Yapalım</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </section>
+
+  <section class="bolum sorular">
+    <h2>PM'e sorular</h2>
+    <ol>
+      <li>Hangi öneriler ürüne girsin? (Önerimiz: 1, 2, 4, 5 hemen; 3 yalnız ara ekranlarda.)</li>
+      <li>Arka plan resmi gerçek soru ekranında hiç olmasın mı, yoksa kenarda çok soluk mu kalsın?</li>
+      <li>Hayvanın ara cümleleri ("Harika gidiyorsun!", "Birlikte deneyelim!", "Tekrar hoş geldin!") yazılı mı kalsın, sesli de okunsun mu? Sesli olursa tek anlatıcı sesiyle kaydedilir.</li>
+      <li>Hatıralar uygun mu? (ay, fındık, deniz kabuğu, inci, okaliptüs yaprağı, papatya)</li>
+      <li>Bölüm bitti kartında noktalar mı kalsın, patika mı gelsin?</li>
+    </ol>
+    <p class="kaynak" style="margin-top:12px">Dayanaklar:
+      <a href="https://www.cmu.edu/news/stories/archives/2014/may/may27_decoratedclassrooms.html">çok süslü sınıflar 5 yaş çocuklarında dikkati dağıtıyor (Carnegie Mellon, 2014)</a> ·
+      <a href="https://research.tudelft.nl/en/publications/monster-mischief-a-game-based-assessment-of-selective-sustained-a">oyunlaştırılmış dikkat ölçümü çocukları daha istekli kılıyor (TU Delft)</a> ·
+      <a href="https://boldscience.org/?p=5262">200'den fazla okul öncesi uygulamada ödüllerin anlamsız çıkartmalara dönüşmesi</a> ·
+      <a href="https://smashingmagazine.com/2024/02/practical-guide-design-children">çocuklar için tasarım rehberi (Smashing Magazine)</a>
+    </p>
+  </section>
+</div>
+
+<script>
+const HAYVANLAR = [
+  {id:"baykus", ad:"Bilge Baykuş", img:"img/1f989.svg", hatira:"ay", dunya:"gece",
+    renk:{ink:"42 27 74",b50:"242 239 254",b100:"230 224 253",b500:"124 107 245",b700:"90 69 214",sun:"255 203 69",acc:"176 107 245"},
+    bg:"linear-gradient(165deg,#efe9ff 0%,#f7f1ff 45%,#fff4ea 100%)"},
+  {id:"sincap", ad:"Fındık Sincap", img:"img/1f43f.svg", hatira:"findik", dunya:"orman",
+    renk:{ink:"28 58 45",b50:"236 247 239",b100:"215 239 221",b500:"47 162 107",b700:"30 112 73",sun:"255 209 102",acc:"255 159 67"},
+    bg:"linear-gradient(170deg,#e3f4ff 0%,#ecf9ee 55%,#fdf6e3 100%)"},
+  {id:"ahtapot", ad:"Pembiş Ahtapot", img:"img/1f419.svg", hatira:"kabuk", dunya:"mercan",
+    renk:{ink:"74 59 92",b50:"253 238 244",b100:"251 220 233",b500:"240 105 158",b700:"194 64 122",sun:"255 217 125",acc:"157 141 241"},
+    bg:"linear-gradient(160deg,#fdf1f5 0%,#f5eefc 55%,#eef7f4 100%)"},
+  {id:"yunus", ad:"Dalgacık Yunus", img:"img/1f42c.svg", hatira:"inci", dunya:"deniz",
+    renk:{ink:"56 36 28",b50:"255 241 236",b100:"255 224 213",b500:"255 122 89",b700:"212 79 47",sun:"255 203 69",acc:"35 181 211"},
+    bg:"linear-gradient(168deg,#fff8e8 0%,#fff1e6 50%,#ffeaf0 100%)"},
+  {id:"koala", ad:"Pamuk Koala", img:"img/1f428.svg", hatira:"yaprak", dunya:"okaliptus",
+    renk:{ink:"34 48 54",b50:"236 246 242",b100:"214 236 228",b500:"52 128 105",b700:"32 90 72",sun:"255 214 120",acc:"255 179 138"},
+    bg:"linear-gradient(168deg,#eef3f5 0%,#eef7f2 55%,#fff4ec 100%)"},
+  {id:"ugur", ad:"Benek Uğur Böceği", img:"img/1f41e.svg", hatira:"papatya", dunya:"cayir",
+    renk:{ink:"60 30 32",b50:"254 238 238",b100:"252 218 219",b500:"212 52 60",b700:"154 30 38",sun:"255 203 69",acc:"70 167 88"},
+    bg:"linear-gradient(168deg,#fff9ec 0%,#fff1ef 50%,#f1f9ee 100%)"},
+];
+const BOLUMLER = ["Bellek Başlangıç","Mini Market","İşitsel Dikkat","Minik Orman","Görev Kartları","Hayvan Kulübü","Gecikmeli Bellek"];
+
+/* ---- hatıra simgeleri (maket çizimi; üründe date çizim diliyle yeniden çizilir) ---- */
+function hatiraSvg(t){
+  const S = {
+    ay:'<svg viewBox="0 0 24 24"><path d="M15.5 3.2A8.5 8.5 0 1 0 20.8 14 7 7 0 0 1 15.5 3.2z" fill="#ffcb45" stroke="#e0a400" stroke-width="1.2"/></svg>',
+    findik:'<svg viewBox="0 0 24 24"><path d="M5 10c0-3 3-5 7-5s7 2 7 5z" fill="#8a5a2b"/><path d="M6 10h12c0 5-3 10-6 10s-6-5-6-10z" fill="#d9954a"/><path d="M12 5V2.5" stroke="#6b4420" stroke-width="1.6" stroke-linecap="round"/></svg>',
+    kabuk:'<svg viewBox="0 0 24 24"><path d="M12 4c5 0 8 5 8 9l-8 7-8-7c0-4 3-9 8-9z" fill="#ffb3c7" stroke="#e0708f" stroke-width="1.1"/><path d="M12 20V5M12 20 7 7M12 20l5-13" stroke="#e0708f" stroke-width="1"/></svg>',
+    inci:'<svg viewBox="0 0 24 24"><path d="M3 15c3-6 15-6 18 0-3 4-15 4-18 0z" fill="#9fdcea" stroke="#23b5d3" stroke-width="1"/><circle cx="12" cy="11.5" r="4" fill="#fff" stroke="#c9d6e0"/><circle cx="10.6" cy="10.2" r="1.2" fill="#eef5fa"/></svg>',
+    yaprak:'<svg viewBox="0 0 24 24"><path d="M5 19C5 10 10 5 19 5c0 9-5 14-14 14z" fill="#7cc4a6" stroke="#348069" stroke-width="1.2"/><path d="M5 19 15 9" stroke="#348069" stroke-width="1.2"/></svg>',
+    papatya:'<svg viewBox="0 0 24 24"><g fill="#fff" stroke="#e6d9c5" stroke-width=".8">'+[0,45,90,135,180,225,270,315].map(a=>`<ellipse cx="12" cy="6" rx="2.6" ry="4" transform="rotate(${a} 12 12)"/>`).join("")+'</g><circle cx="12" cy="12" r="3.2" fill="#ffcb45"/></svg>',
+  };
+  return S[t];
+}
+
+/* ---- dünya arka planları ---- */
+function dunyaSvg(d){
+  const W = 'viewBox="0 0 258 528" preserveAspectRatio="xMidYMid slice"';
+  if(d==="gece") return `<svg ${W}><defs><radialGradient id="g1" cx="80%" cy="8%" r="60%"><stop offset="0" stop-color="#d9d0ff"/><stop offset="1" stop-color="#d9d0ff" stop-opacity="0"/></radialGradient></defs>
+    <rect width="258" height="528" fill="url(#g1)"/><circle cx="212" cy="34" r="26" fill="#fff6d6"/><circle cx="224" cy="34" r="24" fill="#efe9ff" opacity=".9"/>
+    ${[[30,40],[70,95],[140,30],[180,120],[40,160],[110,140],[230,190],[20,250]].map(([x,y],i)=>`<path d="M${x} ${y-5}l1.6 3.4 3.4 1.6-3.4 1.6L${x} ${y+5}l-1.6-3.4-3.4-1.6 3.4-1.6z" fill="#ffcb45" opacity="${.5+i%3*.2}"/>`).join("")}
+    <path d="M0 470c40-20 80-24 129-10s90 10 129-6v74H0z" fill="#b9acf7" opacity=".5"/><path d="M0 495c50-14 100-10 140 0s80 6 118-4v37H0z" fill="#9d8df1" opacity=".55"/></svg>`;
+  if(d==="orman") return `<svg ${W}><circle cx="215" cy="34" r="30" fill="#ffd166" opacity=".55"/>
+    ${[[10,420,60],[50,440,48],[205,415,62],[240,445,44],[120,455,40]].map(([x,y,h])=>`<rect x="${x+h*.22}" y="${y+h*.6}" width="${h*.12}" height="${h*.8}" fill="#8a5a2b" opacity=".55"/><ellipse cx="${x+h*.28}" cy="${y+h*.35}" rx="${h*.42}" ry="${h*.55}" fill="#2fa26b" opacity=".45"/>`).join("")}
+    <path d="M0 490c60-18 120-16 258 4v34H0z" fill="#7fcf9c" opacity=".55"/>
+    <path d="M18 120c12-8 22-4 26 4M190 160c10-6 18-3 22 3" stroke="#2fa26b" stroke-width="2" fill="none" opacity=".35"/></svg>`;
+  if(d==="mercan") return `<svg ${W}>
+    ${[[30,90,8],[60,150,5],[220,110,9],[200,40,5],[235,210,6],[25,230,4]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#9d8df1" stroke-width="1.6" opacity=".5"/>`).join("")}
+    <path d="M14 528c0-50 10-70 2-110M28 528c0-40 14-60 10-96" stroke="#7de3c0" stroke-width="7" stroke-linecap="round" fill="none" opacity=".55"/>
+    <path d="M222 528c0-30-14-40-6-70 4 16 14 18 16 4 4 20-2 40-2 66z" fill="#f0699e" opacity=".45"/>
+    <path d="M0 505c70-14 150-14 258 0v23H0z" fill="#fbdce9" opacity=".9"/></svg>`;
+  if(d==="deniz") return `<svg ${W}><circle cx="210" cy="34" r="28" fill="#ffcb45" opacity=".5"/>
+    <path d="M30 70c6-4 12-4 18 0s12 4 18 0" stroke="#fff" stroke-width="3" fill="none" opacity=".8"/>
+    <path d="M0 450c22-12 43-12 65 0s43 12 65 0 43-12 64 0 43 12 64 0v78H0z" fill="#23b5d3" opacity=".35"/>
+    <path d="M0 478c22-12 43-12 65 0s43 12 65 0 43-12 64 0 43 12 64 0v50H0z" fill="#23b5d3" opacity=".5"/>
+    <path d="M0 505c22-10 43-10 65 0s43 10 65 0 43-10 64 0 43 10 64 0v23H0z" fill="#ffe2b8"/></svg>`;
+  if(d==="okaliptus") return `<svg ${W}>
+    <path d="M258 30c-40 10-60 40-70 90" stroke="#9aa7b4" stroke-width="5" fill="none" opacity=".45" stroke-linecap="round"/>
+    ${[[230,40,-30],[205,70,20],[195,105,-40],[240,85,40]].map(([x,y,a])=>`<ellipse cx="${x}" cy="${y}" rx="16" ry="7" transform="rotate(${a} ${x} ${y})" fill="#7cc4a6" opacity=".55"/>`).join("")}
+    ${[[25,430,-20],[45,455,30],[15,470,60],[230,440,-50],[245,470,10]].map(([x,y,a])=>`<ellipse cx="${x}" cy="${y}" rx="18" ry="8" transform="rotate(${a} ${x} ${y})" fill="#348069" opacity=".35"/>`).join("")}
+    <path d="M0 500c60-12 140-14 258 2v26H0z" fill="#d6ece4"/></svg>`;
+  if(d==="cayir") return `<svg ${W}><circle cx="205" cy="34" r="30" fill="#ffcb45" opacity=".5"/>
+    ${[[20,90],[230,150],[40,200]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="3" fill="#d4343c" opacity=".35"/>`).join("")}
+    <path d="M0 470c50-16 120-14 258 6v52H0z" fill="#9fd8a9" opacity=".7"/>
+    ${[[30,478],[80,472],[150,476],[215,480]].map(([x,y])=>`<g transform="translate(${x} ${y})" opacity=".85">${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-5" rx="2.6" ry="4.4" transform="rotate(${a})" fill="#fff"/>`).join("")}<circle r="2.6" fill="#ffcb45"/></g>`).join("")}</svg>`;
+}
+
+/* ---- ekran yapı taşları ---- */
+const H = () => window.__h;
+const sesIkon = '<div class="ses" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg></div>';
+function ust(no, {rozet=false}={}){
+  return `<div class="logo"><img src="${H().img}" alt="">date</div><div class="alt-baslik">4-7 Yaş Oyunlu Taraması</div>
+  <div class="bolum-satir">Bölüm ${no} / 7 — ${BOLUMLER[no-1]}</div>
+  ${rozet?'<div class="rozet" style="margin-top:4px"><img src="img/270f.svg" alt="">Alıştırma</div>':''}
+  <div class="noktalar">${BOLUMLER.map((_,i)=>`<i class="${i<no?'on':''}"></i>`).join("")}</div>`;
+}
+function tel(etiket, yeni, ic, {dunya=null, dunyaSinif=""}={}){
+  return `<div class="tel"><span class="etiket ${yeni?'yeni':''}">${etiket}</span>
+    ${dunya?`<div class="dunya ${dunyaSinif}">${dunyaSvg(H().dunya)}</div>`:''}
+    <div class="sahne-ic">${ic}</div></div>`;
+}
+function fig(t, cap){ return `<figure>${t}<figcaption>${cap}</figcaption></figure>`; }
+function patika(no){
+  const pts = [[14,58],[50,30],[88,56],[126,28],[164,56],[202,30],[238,56]];
+  const d = "M"+pts.map(p=>p.join(" ")).join(" L");
+  const [x,y] = pts[no] || pts[6];
+  return `<div class="patika"><svg viewBox="0 0 252 84" aria-hidden="true">
+    <path d="${d}" fill="none" stroke="rgb(${H().renk.b100})" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 11"/>
+    ${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i<no?8:6}" fill="${i<no?'rgb('+H().renk.b500+')':'#fff'}" stroke="rgb(${H().renk.b100})" stroke-width="2.5"/>${i<no?`<path d="M${p[0]-3.5} ${p[1]}l2.4 2.6 4.6-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>`:''}`).join("")}
+  </svg><img class="yurur zipla" src="${H().img}" alt="" style="left:calc(${x/252*100}% - 18px);top:${y-40}px"></div>`;
+}
+function hatiralar(adet, yeniIndeks=-1){
+  return `<div class="hatira-sira" aria-label="${adet} / 7 hatıra">${BOLUMLER.map((_,i)=>`<span class="hatira ${i<adet?'var':''} ${i===yeniIndeks?'yeni':''}">${i<adet?hatiraSvg(H().hatira):''}</span>`).join("")}</div>`;
+}
+const raf = (secili=-1) => `<div class="raf">${["1f34e","1f955","1f34c","1f347","1f966","1f95b","1f9c0","1f35e","1f955","1f34e","1f347","1f34c","1f35e","1f966","1f9c0","1f95b"].map((c,i)=>`<div class="${i===secili?'secili':''}"><img src="img/${c}.svg" alt=""></div>`).join("")}</div>`;
+const dok = '<div class="dok"><div class="cizgi"><i></i></div><span class="ileri">İleri →</span></div>';
+const cip = (bolum, adim, yard=false) => `<div class="cip">${yard?`<img src="${H().img}" alt="" style="width:20px;vertical-align:-5px;margin-right:4px">`:''}<b style="display:inline">${BOLUMLER[bolum-1]}</b><br>Bölüm ${bolum} / 7<br>Adım ${adim}</div>`;
+
+function ciz(){
+  const h = H();
+  const ad = h.ad.split(" ")[0];
+
+  /* 1. geçiş */
+  document.querySelector('[data-ciz="gecis"]').innerHTML = [
+    fig(tel("Bugün", false, ust(1) + `<div class="kart"><div class="isima" style="background:linear-gradient(rgb(255 139 107 / .35),transparent)"></div>
+      <div class="madalyon"><img src="img/1f388.svg" alt=""></div><div class="k-bas">Bölüm bitti!</div><div class="k-alt">Bölüm 1 / 7 tamamlandı</div>
+      <div class="noktalar" style="width:80%;margin:2px 0"> ${BOLUMLER.map((_,i)=>`<i class="${i<2?'on':''}"></i>`).join("")}</div>
+      <div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
+      "<b>Bugün:</b> balon resmi, her temada aynı."),
+    fig(tel("Öneri A", true, ust(1) + `<div class="kart" style="margin-top:14px;overflow:visible"><div class="isima"></div>
+      <div class="madalyon buyuk zipla"><img src="${h.img}" alt=""></div>
+      <div class="k-bas">Bölüm bitti!</div><div class="k-alt" style="font-size:14px;color:rgb(${h.renk.b700})">${ad}: “Harika gidiyorsun!”</div>
+      <div class="k-alt">Bölüm 1 / 7 tamamlandı · Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
+      "<b>Öneri A:</b> madalyonda seçilen hayvan zıplar, kısa bir cümle söyler. Cümle her bölümde aynı olabilir ya da 2-3 cümle sırayla döner."),
+    fig(tel("Öneri B · patika", true, ust(1) + `<div class="kart" style="margin-top:14px"><div class="isima"></div>
+      <div class="k-bas" style="margin-top:2px">Bölüm bitti!</div>
+      ${patika(1)}
+      <div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
+      "<b>Öneri B:</b> noktaların yerini 7 duraklı patika alır; hayvan bir sonraki durağa yürür. Çocuk ne kadar kaldığını görerek anlar."),
+  ].join("");
+
+  /* 2. alıştırma */
+  document.querySelector('[data-ciz="alistirma"]').innerHTML = [
+    fig(tel("Bugün", false, `${cip(2,"1 / 1")}${sesIkon}<div class="rozet" style="margin-top:44px"><img src="img/270f.svg" alt="">Alıştırma</div>
+      <div class="soru" style="margin-top:6px">Elmayı bul!</div>${raf()}${dok}`),
+      "<b>Bugün:</b> alıştırma sahnesinde yalnız kesikli “Alıştırma” rozeti var."),
+    fig(tel("Öneri · alıştırma", true, `${cip(2,"1 / 1")}${sesIkon}<div class="rozet" style="margin-top:44px"><img src="${h.img}" alt="">Alıştırma</div>
+      <div class="soru" style="margin-top:6px">Elmayı bul!</div>${raf(0)}${dok}
+      <div class="yard goz-at" style="width:62px;left:6px;bottom:44px"><img src="${h.img}" alt=""></div>
+      <div class="balon sag" style="left:72px;bottom:78px">Birlikte deneyelim!</div>`),
+      `<b>Öneri:</b> alıştırmada ${h.ad} sol alttan gözükür. Rozet de hayvanın resmini taşır. Doğru ya da yanlışa göre tepki vermez.`),
+    fig(tel("Öneri · gerçek soru", true, `${cip(2,"3 / 12",true)}${sesIkon}
+      <div class="soru" style="margin-top:62px">Elmayı bul!</div>${raf()}${dok}`),
+      "<b>Gerçek sorular:</b> hayvan yalnız köşedeki çipte küçük ve hareketsiz. Soru alanı bugünkü kadar sade kalır."),
+  ].join("");
+
+  /* 3. arka plan */
+  const gecisKart = (tag) => ust(1) + `<div class="kart" style="margin-top:14px;background:rgb(255 255 255 / .94)"><div class="isima"></div>
+      <div class="madalyon buyuk"><img src="${h.img}" alt=""></div><div class="k-bas">Bölüm bitti!</div>
+      <div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`;
+  document.querySelector('[data-ciz="arkaplan"]').innerHTML = [
+    fig(tel("Geçiş · dünya resmi", true, gecisKart(), {dunya:true}),
+      `<b>Geçiş ve alıştırma ekranları:</b> Seçilen hayvanın dünyası tam görünür. Önerimiz bu.`),
+    fig(tel("Soru · kenarda soluk", true, `${cip(2,"3 / 12",true)}${sesIkon}<div class="soru" style="margin-top:62px">Elmayı bul!</div>${raf()}${dok}`, {dunya:true, dunyaSinif:"soluk kenar"}),
+      "<b>Seçenek:</b> gerçek soruda resim yalnız üst ve alt kenarda, çok soluk. Raf alanı boş kalır."),
+    fig(tel("Soru · tam resim", false, `${cip(2,"3 / 12",true)}${sesIkon}<div class="soru" style="margin-top:62px">Elmayı bul!</div>${raf()}${dok}`, {dunya:true}),
+      "<b>Önermiyoruz:</b> soru ekranında tam resim. Görsel kalabalık, özellikle Mini Market ve Görev Kartları'nda aranan nesneyle yarışır."),
+  ].join("");
+
+  /* 4. hatıra */
+  document.querySelector('[data-ciz="hatira"]').innerHTML = [
+    fig(tel("Bölüm bitti", true, ust(3) + `<div class="kart" style="margin-top:14px"><div class="isima"></div>
+      <div style="position:relative"><div class="madalyon buyuk zipla"><img src="${h.img}" alt=""></div>
+      <span class="hatira var yeni" style="position:absolute;right:-14px;bottom:-4px;width:38px;height:38px">${hatiraSvg(h.hatira).replace('<svg','<svg style="width:24px;height:24px"')}</span></div>
+      <div class="k-bas">Bölüm bitti!</div><div class="k-alt" style="color:rgb(${h.renk.b700})">${ad}: “Bu senin için!”</div>
+      ${hatiralar(3,2)}<div class="dugme">Devam et →</div></div>`),
+      "<b>Bölüm bitti:</b> hayvan yeni hatırayı uzatır; kartın altında toplananlar sıralanır (3 / 7)."),
+    fig(tel("Tarama sonu", true, `<div class="logo" style="margin-top:10px"><img src="${h.img}" alt="">date</div>
+      <div class="kart" style="margin-top:30px;gap:10px"><div class="isima"></div>
+      <div class="madalyon buyuk el-salla"><img src="${h.img}" alt=""></div><div class="k-bas">Tarama tamamlandı</div>
+      <div class="k-alt" style="color:rgb(${h.renk.b700})">${ad}: “Bütün hatıraları topladın!”</div>
+      ${hatiralar(7)}<div class="k-alt" style="margin-top:6px">Sonuç, taramayı başlatan hesabın panelinde görülebilir.</div></div>`),
+      "<b>Tarama sonu:</b> yedi hatıra birlikte; hayvan el sallar. Cevaplardan bağımsız, herkes yedisini de toplar."),
+  ].join("");
+
+  /* 5. bekleme + dönüş */
+  document.querySelector('[data-ciz="bekleme"]').innerHTML = [
+    fig(tel("Bugün · bekleme", false, `${cip(2,"1 / 1")}${sesIkon}<div style="margin:auto;text-align:center"><img src="img/1f6d2.svg" alt="" style="width:64px"><div class="k-bas" style="color:rgb(var(--ink) / .62)">Raf geliyor…</div></div>`),
+      "<b>Bugün:</b> beklemede genel bir simge."),
+    fig(tel("Öneri · bekleme", true, `${cip(2,"1 / 1")}${sesIkon}<div style="margin:auto;text-align:center"><img class="nefes" src="${h.img}" alt="" style="width:78px"><div class="k-bas" style="color:rgb(var(--ink) / .62)">Raf geliyor…</div></div>`),
+      "<b>Öneri:</b> hayvan sakince nefes alır. Zıplamaz; bekleme sakin kalsın."),
+    fig(tel("Öneri · dönüş", true, ust(4) + `<div class="kart" style="margin-top:14px"><div class="isima" style="background:linear-gradient(rgb(87 217 176 / .4),transparent)"></div>
+      <div class="madalyon buyuk el-salla"><img src="${h.img}" alt=""></div><div class="k-bas">Tekrar hoş geldin!</div>
+      <div class="k-alt">Kaldığın yerden devam edelim.</div><div class="dugme">Devam et →</div></div>`),
+      "<b>Yarım tarama dönüşü:</b> bugünkü iğne simgesi yerine hayvan el sallar (metin TASLAK)."),
+  ].join("");
+}
+
+function sec(id){
+  const h = HAYVANLAR.find(x=>x.id===id) || HAYVANLAR[0];
+  window.__h = h;
+  const r = document.documentElement.style;
+  Object.entries(h.renk).forEach(([k,v])=>r.setProperty("--"+k, v));
+  r.setProperty("--bg", h.bg);
+  document.querySelectorAll(".secici button").forEach(b=>b.setAttribute("aria-pressed", b.dataset.id===id));
+  ciz();
+  try{ localStorage.setItem("maket-hayvan", id); }catch(e){}
+}
+const secici = document.querySelector(".secici");
+HAYVANLAR.forEach(h=>{
+  const b = document.createElement("button");
+  b.type="button"; b.dataset.id=h.id; b.innerHTML=`<img src="${h.img}" alt="">${h.ad}`;
+  b.onclick=()=>sec(h.id); secici.appendChild(b);
+});
+let ilk = "sincap"; try{ ilk = localStorage.getItem("maket-hayvan") || ilk; }catch(e){}
+sec(ilk);
+</script>
+</body>
+</html>

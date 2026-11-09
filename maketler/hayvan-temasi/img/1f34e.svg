@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>elma</title>
+<defs>
+<radialGradient id="e1f34e-s"><stop offset="0" stop-color="#3B1E14" stop-opacity=".32"/><stop offset="1" stop-color="#3B1E14" stop-opacity="0"/></radialGradient>
+<radialGradient id="e1f34e-b" cx=".36" cy=".34" r=".74" fx=".3" fy=".26"><stop offset="0" stop-color="#FF907E"/><stop offset=".32" stop-color="#F23B3B"/><stop offset=".78" stop-color="#C8171F"/><stop offset="1" stop-color="#8A0B15"/></radialGradient>
+<radialGradient id="e1f34e-r" cx=".72" cy=".96" r=".45"><stop offset="0" stop-color="#FF6E5E" stop-opacity=".6"/><stop offset="1" stop-color="#FF6E5E" stop-opacity="0"/></radialGradient>
+<radialGradient id="e1f34e-c"><stop offset="0" stop-color="#6E0710" stop-opacity=".75"/><stop offset="1" stop-color="#6E0710" stop-opacity="0"/></radialGradient>
+<radialGradient id="e1f34e-h"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+<linearGradient id="e1f34e-l" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A6EA62"/><stop offset=".55" stop-color="#4DB33D"/><stop offset="1" stop-color="#1F7229"/></linearGradient>
+<linearGradient id="e1f34e-t" x1="0" x2="1"><stop offset="0" stop-color="#A06A44"/><stop offset="1" stop-color="#55321E"/></linearGradient>
+</defs>
+<ellipse cx="64" cy="115" rx="38" ry="6" fill="url(#e1f34e-s)"/>
+<path d="M64 40C54 30 22 30 20 62C18 92 40 114 56 112C60 111.5 62 110 64 110C66 110 68 111.5 72 112C88 114 110 92 108 62C106 30 74 30 64 40Z" fill="url(#e1f34e-b)"/>
+<path d="M64 40C54 30 22 30 20 62C18 92 40 114 56 112C60 111.5 62 110 64 110C66 110 68 111.5 72 112C88 114 110 92 108 62C106 30 74 30 64 40Z" fill="url(#e1f34e-r)"/>
+<ellipse cx="64" cy="42" rx="15" ry="7" fill="url(#e1f34e-c)"/>
+<path d="M63 44C62 34 64 26 69 19" fill="none" stroke="url(#e1f34e-t)" stroke-width="6" stroke-linecap="round"/>
+<path d="M69 31C73 18 88 13 101 17C97 30 82 37 69 31Z" fill="url(#e1f34e-l)"/>
+<path d="M72 29.5C80 25 89 21 97 19" fill="none" stroke="#D2F7A6" stroke-width="1.6" stroke-linecap="round" opacity=".7"/>
+<ellipse cx="40" cy="60" rx="10" ry="16" transform="rotate(28 40 60)" fill="url(#e1f34e-h)"/>
+<ellipse cx="35" cy="52" rx="3.2" ry="5.5" transform="rotate(28 35 52)" fill="#fff" opacity=".9"/>
+</svg>

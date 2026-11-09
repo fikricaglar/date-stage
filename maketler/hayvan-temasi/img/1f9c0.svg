@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>peynir</title>
+<defs>
+<radialGradient id="e1f9c0-s"><stop offset="0" stop-color="#4A3210" stop-opacity=".3"/><stop offset="1" stop-color="#4A3210" stop-opacity="0"/></radialGradient>
+<linearGradient id="e1f9c0-t" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFF4B8"/><stop offset=".6" stop-color="#FFE173"/><stop offset="1" stop-color="#F7CB47"/></linearGradient>
+<linearGradient id="e1f9c0-f" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFD24D"/><stop offset=".6" stop-color="#F4B526"/><stop offset="1" stop-color="#D98F12"/></linearGradient>
+<linearGradient id="e1f9c0-r" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E9A21A"/><stop offset="1" stop-color="#B8730C"/></linearGradient>
+<radialGradient id="e1f9c0-o" cx=".5" cy=".3" r=".75"><stop offset="0" stop-color="#B9720C"/><stop offset=".7" stop-color="#E19A1C"/><stop offset="1" stop-color="#F7C442"/></radialGradient>
+<radialGradient id="e1f9c0-p" cx=".5" cy=".25" r=".8"><stop offset="0" stop-color="#C9850E"/><stop offset=".75" stop-color="#EDB12A"/><stop offset="1" stop-color="#FFE79A"/></radialGradient>
+</defs>
+<ellipse cx="66" cy="108" rx="52" ry="7" fill="url(#e1f9c0-s)"/>
+<path d="M14 70C12 68 13 66 16 65L82 36C85 35 88 35 90 36L113 49C115 50 115 52 113 53Z" fill="url(#e1f9c0-t)"/>
+<path d="M14 70L113 53C115 52.7 116 54 116 56V88C116 90 115 91 113 91.4L18 104C15.6 104.3 14 103 14 100.5Z" fill="url(#e1f9c0-f)"/>
+<path d="M113 53C115 52.7 116 54 116 56V88C116 90 115 91 113 91.4L110 92V54Z" fill="url(#e1f9c0-r)"/>
+<ellipse cx="38" cy="83" rx="7" ry="8" fill="url(#e1f9c0-p)"/>
+<ellipse cx="70" cy="76" rx="10" ry="9" fill="url(#e1f9c0-p)"/>
+<ellipse cx="96" cy="82" rx="5" ry="6" fill="url(#e1f9c0-p)"/>
+<ellipse cx="58" cy="95" rx="4.5" ry="4" fill="url(#e1f9c0-p)"/>
+<ellipse cx="62" cy="52" rx="8" ry="3.4" transform="rotate(-18 62 52)" fill="url(#e1f9c0-o)"/>
+<ellipse cx="90" cy="45" rx="4.4" ry="2" transform="rotate(-18 90 45)" fill="url(#e1f9c0-o)"/>
+<path d="M18 68.5L82 40.5" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" opacity=".7"/>
+<path d="M17 72L110 56" fill="none" stroke="#FFF3B0" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+</svg>

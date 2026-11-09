@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128"><title>brokoli</title>
+<defs>
+<radialGradient id="e1f966-s"><stop offset="0" stop-color="#1E2E14" stop-opacity="0.3"/><stop offset="1" stop-color="#1E2E14" stop-opacity="0"/></radialGradient>
+<linearGradient id="e1f966-t" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#E6F6B0"/><stop offset="0.25" stop-color="#BCDE7E"/><stop offset="0.7" stop-color="#88B24E"/><stop offset="1" stop-color="#5E8A30"/></linearGradient>
+<radialGradient id="e1f966-f" gradientUnits="userSpaceOnUse" cx="46" cy="28" r="72" fx="40" fy="20"><stop offset="0" stop-color="#A8E472"/><stop offset="0.35" stop-color="#4FA83C"/><stop offset="0.8" stop-color="#2A7A30"/><stop offset="1" stop-color="#1A5222"/></radialGradient>
+</defs>
+<ellipse cx="64" cy="114" rx="34" ry="5.5" fill="url(#e1f966-s)"/>
+<path d="M54 112C56 100 56 86 46 72L58 70C61 78 63 82 64 76L72 70L82 72C72 86 72 100 74 112C68 114.5 60 114.5 54 112Z" fill="url(#e1f966-t)"/>
+<path d="M64 80V104" fill="none" stroke="#7EA84A" stroke-width="2" stroke-linecap="round" opacity=".5"/>
+<circle cx="38" cy="60" r="17" fill="url(#e1f966-f)"/><circle cx="90" cy="60" r="17" fill="url(#e1f966-f)"/><circle cx="64" cy="40" r="22" fill="url(#e1f966-f)"/><circle cx="44" cy="38" r="15" fill="url(#e1f966-f)"/><circle cx="84" cy="38" r="15" fill="url(#e1f966-f)"/><circle cx="52" cy="66" r="14" fill="url(#e1f966-f)"/><circle cx="76" cy="66" r="14" fill="url(#e1f966-f)"/>
+<path d="M24 66C30 74 44 76 52 70M76 70C84 76 98 74 104 66M44 50C52 56 62 58 70 54" fill="none" stroke="#1A5222" stroke-width="2.2" stroke-linecap="round" opacity=".45"/>
+<circle cx="30" cy="52" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="40" cy="46" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="48" cy="56" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="56" cy="28" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="66" cy="24" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="74" cy="30" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="60" cy="44" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="72" cy="46" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="86" cy="50" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="96" cy="56" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="84" cy="30" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="44" cy="30" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="38" cy="64" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="90" cy="66" r="2.6" fill="#B8EC86" opacity=".55"/><circle cx="64" cy="58" r="2.6" fill="#B8EC86" opacity=".55"/>
+</svg>
