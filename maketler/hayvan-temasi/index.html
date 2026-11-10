@@ -51,15 +51,16 @@ figcaption b{color:var(--text)}
   font-family:"Baloo 2",system-ui,sans-serif;color:rgb(var(--ink));box-shadow:0 10px 30px rgb(0 0 0 / .12)}
 .tel .etiket{position:absolute;top:8px;left:8px;z-index:9;font:700 11px system-ui;background:#23212a;color:#fff;border-radius:99px;padding:2px 8px}
 .tel .etiket.yeni{background:rgb(var(--b500))}
+.tel .etiket.hayir{background:#b3261e}
 .sahne-ic{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;padding:34px 14px 14px}
 .logo{display:flex;align-items:center;gap:6px;font-weight:800;font-size:26px;line-height:1}
 .logo img{width:28px}
-.alt-baslik{font-size:12px;font-weight:700;color:rgb(var(--soft, 107 90 140));opacity:.85;margin-top:2px}
+.alt-baslik{font-size:12px;font-weight:700;color:rgb(var(--ink) / .62);margin-top:2px}
 .bolum-satir{font-size:12px;font-weight:700;opacity:.75;margin-top:10px}
 .noktalar{display:flex;gap:4px;margin:6px 0 10px;width:88%}
 .noktalar i{flex:1;height:5px;border-radius:9px;background:rgb(var(--b100))}
 .noktalar i.on{background:rgb(var(--b500))}
-.kart{width:100%;background:#fff;border-radius:22px;box-shadow:0 8px 22px rgb(var(--b500) / .16);position:relative;overflow:hidden;
+.kart{width:100%;margin-block:auto;background:#fff;border-radius:22px;box-shadow:0 8px 22px rgb(var(--b500) / .16);position:relative;overflow:hidden;
   display:flex;flex-direction:column;align-items:center;text-align:center;padding:20px 14px 16px;gap:8px}
 .isima{position:absolute;inset:-60px 0 auto 0;height:120px;filter:blur(22px);background:linear-gradient(rgb(var(--sun) / .5),transparent);pointer-events:none}
 .madalyon{width:64px;height:64px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(rgb(var(--sun) / .6),rgb(var(--sun) / .25));
@@ -71,7 +72,7 @@ figcaption b{color:var(--text)}
 .k-alt{font-weight:700;font-size:13px;color:rgb(var(--ink) / .62);line-height:1.3}
 .dugme{margin-top:4px;background:rgb(var(--b500));color:#fff;font-weight:800;font-size:15px;border-radius:99px;padding:8px 22px;box-shadow:0 4px 0 rgb(var(--b700))}
 .rozet{border:2px dashed rgb(var(--sun));background:rgb(var(--sun) / .18);border-radius:99px;padding:1px 12px;font-weight:800;font-size:12.5px;display:inline-flex;gap:5px;align-items:center}
-.rozet img{width:14px}
+.rozet img{width:18px}
 .cip{position:absolute;top:30px;left:10px;background:#fff;border-radius:14px;padding:5px 10px;font-size:11px;line-height:1.25;font-weight:700;box-shadow:0 4px 12px rgb(var(--b500) / .15);text-align:left;z-index:3}
 .cip b{font-size:12.5px;font-weight:800;display:block}
 .ses{position:absolute;top:30px;right:10px;width:40px;height:40px;border-radius:50%;background:#fff;display:grid;place-items:center;box-shadow:0 4px 12px rgb(var(--b500) / .15);z-index:3}
@@ -109,19 +110,19 @@ figcaption b{color:var(--text)}
 .patika .yurur{position:absolute;width:36px;transition:left .6s}
 
 /* hatıralar */
-.hatira-sira{display:flex;gap:4px;justify-content:center;flex-wrap:wrap}
-.hatira{width:25px;height:25px;border-radius:50%;display:grid;place-items:center;background:rgb(var(--b50));border:2px dashed rgb(var(--b100))}
-.hatira.var{border:2px solid #fff;background:linear-gradient(rgb(var(--sun) / .55),rgb(var(--sun) / .2));box-shadow:0 2px 5px rgb(0 0 0 / .08)}
-.hatira svg{width:16px;height:16px}
+.hatira-sira{display:flex;gap:2px;flex-wrap:nowrap;justify-content:center;flex-wrap:wrap}
+.hatira{width:26px;height:26px;border-radius:50%;display:grid;place-items:center;background:rgb(var(--b50));border:2px dashed rgb(var(--b100))}
+.hatira.var{border:2px solid rgb(var(--sun));background:#fff;box-shadow:0 2px 5px rgb(0 0 0 / .08)}
+.hatira svg{width:18px;height:18px}
 .hatira.yeni{animation:parla 1.4s ease-in-out infinite}
 @keyframes parla{0%,100%{box-shadow:0 0 0 0 rgb(var(--sun) / .0)}50%{box-shadow:0 0 0 6px rgb(var(--sun) / .45)}}
-@media (prefers-reduced-motion: reduce){ .hatira.yeni{animation:none} }
+@media (prefers-reduced-motion: reduce){ .hatira.yeni{animation:none;outline:3px solid rgb(var(--sun));outline-offset:2px} }
 
 /* arka plan dünya katmanı */
 .dunya{position:absolute;inset:0;pointer-events:none;z-index:0}
 .dunya svg{position:absolute;inset:0;width:100%;height:100%}
 .dunya.soluk{opacity:.4}
-.dunya.kenar{-webkit-mask:linear-gradient(#000 0 12%,transparent 30% 78%,#000 92%);mask:linear-gradient(#000 0 12%,transparent 30% 78%,#000 92%)}
+.dunya.kenar{-webkit-mask:linear-gradient(#000 0 6%,transparent 14% 100%);mask:linear-gradient(#000 0 6%,transparent 14% 100%)}
 .sahne-ic>*{position:relative;z-index:1}
 .sahne-ic>.cip,.sahne-ic>.ses,.sahne-ic>.yard,.sahne-ic>.balon{position:absolute}
 .sahne-ic>.yard,.sahne-ic>.balon{z-index:5}
@@ -135,12 +136,27 @@ figcaption b{color:var(--text)}
 .tablo-kap{overflow-x:auto}
 .kaynak{font-size:13px;color:var(--muted)}
 .kaynak a{color:inherit}
+:root[data-theme="dark"] .tel{border-color:#3a3844;box-shadow:0 0 0 1px #4a4754,0 10px 30px rgb(0 0 0 / .5)}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]) .tel{border-color:#3a3844;box-shadow:0 0 0 1px #4a4754,0 10px 30px rgb(0 0 0 / .5)} }
+@media (max-width:600px){
+  .secici{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;padding-bottom:8px}
+  .secici::-webkit-scrollbar{display:none}
+  .secici button{flex:0 0 auto}
+  .secici span{display:none}
+  .tablo thead{display:none}
+  .tablo,.tablo tbody,.tablo tr,.tablo td{display:block;width:100%}
+  .tablo tr{border-bottom:1px solid var(--line);padding:8px 0}
+  .tablo td{border:0;padding:3px 12px}
+  .tablo td::before{content:attr(data-baslik) ": ";font-weight:700;color:var(--muted)}
+  .tablo td:first-child{font-weight:700}
+  .tablo td:first-child::before{content:""}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
   <h1>Hayvan teması tarama boyunca <span class="taslak">TASLAK · PM onayı bekler</span></h1>
-  <p class="lead">Çocuğun seçtiği hayvan bugün yalnız tanışma kartında, renklerde ve Mini Market hikayesinde görünüyor. Bu maket, hayvanın taramanın tamamında yanında hissedilmesi için altı öneriyi gösterir. Üstten hayvan seçerek her temada nasıl görüneceğine bakabilirsiniz.</p>
+  <p class="lead">Çocuğun seçtiği hayvan bugün yalnız tanışma kartında, renklerde ve Mini Market hikayesinde görünüyor. Bu maket, hayvanın taramanın tamamında yanında hissedilmesi için beş öneriyi (biri iki seçenekli) gösterir. Üstten hayvan seçerek her temada nasıl görüneceğine bakabilirsiniz.</p>
 
   <div class="ilke" role="note">
     <div><b>1. Ara anlar hayvanın, soru anı çocuğun</b><p>Hayvan geçiş, alıştırma ve bekleme ekranlarında belirgin. Gerçek soru ekranında hareket ve arka plan resmi yok: süslü ortam çocukların dikkatini dağıtır, ölçülen de tam olarak dikkat.</p></div>
@@ -183,7 +199,7 @@ figcaption b{color:var(--text)}
   <!-- 5. BEKLEME + DÖNÜŞ -->
   <section class="bolum" id="bekleme">
     <div class="bolum-bas"><h2>5. Ek öneri: bekleme ve dönüş ekranlarında hayvan</h2><span class="etki ok">Ölçüme etkisi yok</span></div>
-    <p class="oneri-not">"Rapor hazırlanıyor…" ve yarım kalan taramaya dönüş kartı bugün genel simgelerle çiziliyor. Öneride hayvan bekler gibi sakince nefes alır; dönüşte "Tekrar hoş geldin!" der. Sonda da el sallayarak veda eder.</p>
+    <p class="oneri-not">"Rapor hazırlanıyor…" ve yarım kalan taramaya dönüş kartı bugün genel simgelerle çiziliyor. Öneride hayvan bekler gibi sakince nefes alır; dönüş kartında ("Tekrar hoş geldin!") iğne simgesinin yerini alır. Sonda da el sallayarak veda eder.</p>
     <div class="sira" data-ciz="bekleme"></div>
   </section>
 
@@ -210,7 +226,7 @@ figcaption b{color:var(--text)}
     <ol>
       <li>Hangi öneriler ürüne girsin? (Önerimiz: 1, 2, 4, 5 hemen; 3 yalnız ara ekranlarda.)</li>
       <li>Arka plan resmi gerçek soru ekranında hiç olmasın mı, yoksa kenarda çok soluk mu kalsın?</li>
-      <li>Hayvanın ara cümleleri ("Harika gidiyorsun!", "Birlikte deneyelim!", "Tekrar hoş geldin!") yazılı mı kalsın, sesli de okunsun mu? Sesli olursa tek anlatıcı sesiyle kaydedilir.</li>
+      <li>Hayvanın ara cümleleri ("Harika gidiyorsun!", "Birlikte deneyelim!", "Bu senin için!") yazılı mı kalsın, sesli de okunsun mu? Sesli olursa tek anlatıcı sesiyle kaydedilir.</li>
       <li>Hatıralar uygun mu? (ay, fındık, deniz kabuğu, inci, okaliptüs yaprağı, papatya)</li>
       <li>Bölüm bitti kartında noktalar mı kalsın, patika mı gelsin?</li>
     </ol>
@@ -260,49 +276,63 @@ function hatiraSvg(t){
 }
 
 /* ---- dünya arka planları ---- */
-function dunyaSvg(d){
+/* Güvenli bantlar (görsel eleştiri 2026-11-10): üst y 0-130 (logo, çip, ses düğmesi) ve
+   alt dok bandı boş; gök cismi sağ üst köşede, yarısı çerçeve dışında. `kalabalik`: yalnız
+   "önermiyoruz" çerçevesi — raf arkasına da öğe koyar ki görsel yarış gerçekten görünsün. */
+function dunyaSvg(d, kalabalik=false){
   const W = 'viewBox="0 0 258 528" preserveAspectRatio="xMidYMid slice"';
-  if(d==="gece") return `<svg ${W}><defs><radialGradient id="g1" cx="80%" cy="8%" r="60%"><stop offset="0" stop-color="#d9d0ff"/><stop offset="1" stop-color="#d9d0ff" stop-opacity="0"/></radialGradient></defs>
-    <rect width="258" height="528" fill="url(#g1)"/><circle cx="212" cy="34" r="26" fill="#fff6d6"/><circle cx="224" cy="34" r="24" fill="#efe9ff" opacity=".9"/>
-    ${[[30,40],[70,95],[140,30],[180,120],[40,160],[110,140],[230,190],[20,250]].map(([x,y],i)=>`<path d="M${x} ${y-5}l1.6 3.4 3.4 1.6-3.4 1.6L${x} ${y+5}l-1.6-3.4-3.4-1.6 3.4-1.6z" fill="#ffcb45" opacity="${.5+i%3*.2}"/>`).join("")}
+  const gok = (renk, op=.55) => `<circle cx="252" cy="-6" r="34" fill="${renk}" opacity="${op}"/>`;
+  const orta = kalabalik ? ({
+    gece:[["⭐",14,165],["⭐",210,175],["⭐",60,440],["⭐",170,430],["⭐",112,170]],
+    orman:[["🌳",8,170],["🌳",210,178],["🍄",60,440],["🍄",170,432],["🌳",112,170]],
+    mercan:[["🫧",14,165],["🪸",210,175],["🪸",60,440],["🫧",170,430],["🫧",112,170]],
+    deniz:[["🐚",14,165],["🌊",210,175],["🐚",60,440],["🐚",170,430],["🌊",112,170]],
+    okaliptus:[["🍃",14,165],["🌿",210,175],["🌿",60,440],["🍃",170,430],["🍃",112,170]],
+    cayir:[["🌼",14,165],["🌷",210,175],["🌷",60,440],["🌼",170,430],["🌼",112,170]],
+  })[d].map(([e,x,y])=>`<text x="${x}" y="${y}" font-size="36" opacity=".85">${e}</text>`).join("") : "";
+  return dunyaIc(d, W, gok).replace("</svg>", orta + "</svg>");
+}
+function dunyaIc(d, W, gok){
+  if(d==="gece") return `<svg ${W}>${gok("#fff6d6",.9)}
+    ${[[22,440],[70,425],[150,432],[205,420],[240,445]].map(([x,y],i)=>`<path d="M${x} ${y-5}l1.6 3.4 3.4 1.6-3.4 1.6L${x} ${y+5}l-1.6-3.4-3.4-1.6 3.4-1.6z" fill="#ffcb45" opacity="${.5+i%3*.2}"/>`).join("")}
     <path d="M0 470c40-20 80-24 129-10s90 10 129-6v74H0z" fill="#b9acf7" opacity=".5"/><path d="M0 495c50-14 100-10 140 0s80 6 118-4v37H0z" fill="#9d8df1" opacity=".55"/></svg>`;
-  if(d==="orman") return `<svg ${W}><circle cx="215" cy="34" r="30" fill="#ffd166" opacity=".55"/>
+  if(d==="orman") return `<svg ${W}>${gok("#ffd166")}
     ${[[10,420,60],[50,440,48],[205,415,62],[240,445,44],[120,455,40]].map(([x,y,h])=>`<rect x="${x+h*.22}" y="${y+h*.6}" width="${h*.12}" height="${h*.8}" fill="#8a5a2b" opacity=".55"/><ellipse cx="${x+h*.28}" cy="${y+h*.35}" rx="${h*.42}" ry="${h*.55}" fill="#2fa26b" opacity=".45"/>`).join("")}
-    <path d="M0 490c60-18 120-16 258 4v34H0z" fill="#7fcf9c" opacity=".55"/>
-    <path d="M18 120c12-8 22-4 26 4M190 160c10-6 18-3 22 3" stroke="#2fa26b" stroke-width="2" fill="none" opacity=".35"/></svg>`;
-  if(d==="mercan") return `<svg ${W}>
-    ${[[30,90,8],[60,150,5],[220,110,9],[200,40,5],[235,210,6],[25,230,4]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#9d8df1" stroke-width="1.6" opacity=".5"/>`).join("")}
+    <path d="M0 490c60-18 120-16 258 4v34H0z" fill="#7fcf9c" opacity=".55"/></svg>`;
+  if(d==="mercan") return `<svg ${W}>${gok("#fbdce9",.9)}
+    ${[[40,440,6],[70,420,4],[200,430,7],[235,415,4]].map(([x,y,r])=>`<circle cx="${x}" cy="${y}" r="${r}" fill="none" stroke="#9d8df1" stroke-width="1.6" opacity=".5"/>`).join("")}
     <path d="M14 528c0-50 10-70 2-110M28 528c0-40 14-60 10-96" stroke="#7de3c0" stroke-width="7" stroke-linecap="round" fill="none" opacity=".55"/>
     <path d="M222 528c0-30-14-40-6-70 4 16 14 18 16 4 4 20-2 40-2 66z" fill="#f0699e" opacity=".45"/>
     <path d="M0 505c70-14 150-14 258 0v23H0z" fill="#fbdce9" opacity=".9"/></svg>`;
-  if(d==="deniz") return `<svg ${W}><circle cx="210" cy="34" r="28" fill="#ffcb45" opacity=".5"/>
-    <path d="M30 70c6-4 12-4 18 0s12 4 18 0" stroke="#fff" stroke-width="3" fill="none" opacity=".8"/>
+  if(d==="deniz") return `<svg ${W}>${gok("#ffcb45",.5)}
     <path d="M0 450c22-12 43-12 65 0s43 12 65 0 43-12 64 0 43 12 64 0v78H0z" fill="#23b5d3" opacity=".35"/>
     <path d="M0 478c22-12 43-12 65 0s43 12 65 0 43-12 64 0 43 12 64 0v50H0z" fill="#23b5d3" opacity=".5"/>
     <path d="M0 505c22-10 43-10 65 0s43 10 65 0 43-10 64 0 43 10 64 0v23H0z" fill="#ffe2b8"/></svg>`;
-  if(d==="okaliptus") return `<svg ${W}>
-    <path d="M258 30c-40 10-60 40-70 90" stroke="#9aa7b4" stroke-width="5" fill="none" opacity=".45" stroke-linecap="round"/>
-    ${[[230,40,-30],[205,70,20],[195,105,-40],[240,85,40]].map(([x,y,a])=>`<ellipse cx="${x}" cy="${y}" rx="16" ry="7" transform="rotate(${a} ${x} ${y})" fill="#7cc4a6" opacity=".55"/>`).join("")}
+  if(d==="okaliptus") return `<svg ${W}>${gok("#ffd678",.45)}
     ${[[25,430,-20],[45,455,30],[15,470,60],[230,440,-50],[245,470,10]].map(([x,y,a])=>`<ellipse cx="${x}" cy="${y}" rx="18" ry="8" transform="rotate(${a} ${x} ${y})" fill="#348069" opacity=".35"/>`).join("")}
     <path d="M0 500c60-12 140-14 258 2v26H0z" fill="#d6ece4"/></svg>`;
-  if(d==="cayir") return `<svg ${W}><circle cx="205" cy="34" r="30" fill="#ffcb45" opacity=".5"/>
-    ${[[20,90],[230,150],[40,200]].map(([x,y])=>`<circle cx="${x}" cy="${y}" r="3" fill="#d4343c" opacity=".35"/>`).join("")}
+  if(d==="cayir") return `<svg ${W}>${gok("#ffcb45",.5)}
     <path d="M0 470c50-16 120-14 258 6v52H0z" fill="#9fd8a9" opacity=".7"/>
-    ${[[30,478],[80,472],[150,476],[215,480]].map(([x,y])=>`<g transform="translate(${x} ${y})" opacity=".85">${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-5" rx="2.6" ry="4.4" transform="rotate(${a})" fill="#fff"/>`).join("")}<circle r="2.6" fill="#ffcb45"/></g>`).join("")}</svg>`;
+    ${[[30,478],[80,472],[150,476],[215,480]].map(([x,y])=>`<g transform="translate(${x} ${y})" opacity=".85">${[0,72,144,216,288].map(a=>`<ellipse cx="0" cy="-5" rx="2.6" ry="4.4" transform="rotate(${a})" fill="#fff" stroke="#d9c7a8" stroke-width=".8"/>`).join("")}<circle r="2.6" fill="#ffcb45"/></g>`).join("")}</svg>`;
 }
 
 /* ---- ekran yapı taşları ---- */
 const H = () => window.__h;
 const sesIkon = '<div class="ses" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="m22 9-6 6M16 9l6 6"/></svg></div>';
-function ust(no, {rozet=false}={}){
+/* Üründe "Bölüm bitti" kartının üstünde yalnız logo durur (bölüm satırı + noktalar kartın
+   içindedir); alıştırma girişi ve dönüş kartında bölüm satırı + noktalar üstte görünür. */
+function ust(no, {bolum=true, rozet=false}={}){
   return `<div class="logo"><img src="${H().img}" alt="">date</div><div class="alt-baslik">4-7 Yaş Oyunlu Taraması</div>
-  <div class="bolum-satir">Bölüm ${no} / 7 — ${BOLUMLER[no-1]}</div>
+  ${bolum?`<div class="bolum-satir">Bölüm ${no} / 7 — ${BOLUMLER[no-1]}</div>
   ${rozet?'<div class="rozet" style="margin-top:4px"><img src="img/270f.svg" alt="">Alıştırma</div>':''}
-  <div class="noktalar">${BOLUMLER.map((_,i)=>`<i class="${i<no?'on':''}"></i>`).join("")}</div>`;
+  <div class="noktalar">${BOLUMLER.map((_,i)=>`<i class="${i<no?'on':''}"></i>`).join("")}</div>`:''}`;
 }
-function tel(etiket, yeni, ic, {dunya=null, dunyaSinif=""}={}){
-  return `<div class="tel"><span class="etiket ${yeni?'yeni':''}">${etiket}</span>
-    ${dunya?`<div class="dunya ${dunyaSinif}">${dunyaSvg(H().dunya)}</div>`:''}
+const kartNoktalar = (bitti) => `<div class="noktalar" style="width:80%;margin:2px 0">${BOLUMLER.map((_,i)=>`<i class="${i<=bitti?'on':''}"></i>`).join("")}</div>`;
+/* tur: "bugun" (koyu), "oneri" (tema rengi), "hayir" (kırmızı — önermiyoruz). */
+function tel(etiket, tur, ic, {dunya=null, dunyaSinif="", kalabalik=false}={}){
+  const sinif = tur===true||tur==="oneri" ? "yeni" : tur==="hayir" ? "hayir" : "";
+  return `<div class="tel"><span class="etiket ${sinif}">${etiket}</span>
+    ${dunya?`<div class="dunya ${dunyaSinif}">${dunyaSvg(H().dunya, kalabalik)}</div>`:''}
     <div class="sahne-ic">${ic}</div></div>`;
 }
 function fig(t, cap){ return `<figure>${t}<figcaption>${cap}</figcaption></figure>`; }
@@ -310,95 +340,103 @@ function patika(no){
   const pts = [[14,58],[50,30],[88,56],[126,28],[164,56],[202,30],[238,56]];
   const d = "M"+pts.map(p=>p.join(" ")).join(" L");
   const [x,y] = pts[no] || pts[6];
+  // Biten yol tema rengiyle, kalan yol soluk; hayvan SIRADAKİ durağın tam üstünde, gölgesiyle.
+  const biten = "M"+pts.slice(0, no+1).map(p=>p.join(" ")).join(" L");
   return `<div class="patika"><svg viewBox="0 0 252 84" aria-hidden="true">
-    <path d="${d}" fill="none" stroke="rgb(${H().renk.b100})" stroke-width="7" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 11"/>
-    ${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i<no?8:6}" fill="${i<no?'rgb('+H().renk.b500+')':'#fff'}" stroke="rgb(${H().renk.b100})" stroke-width="2.5"/>${i<no?`<path d="M${p[0]-3.5} ${p[1]}l2.4 2.6 4.6-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>`:''}`).join("")}
-  </svg><img class="yurur zipla" src="${H().img}" alt="" style="left:calc(${x/252*100}% - 18px);top:${y-40}px"></div>`;
+    <path d="${d}" fill="none" stroke="rgb(${H().renk.b100})" stroke-width="6" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="1 10"/>
+    <path d="${biten}" fill="none" stroke="rgb(${H().renk.b500})" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+    <ellipse cx="${x}" cy="${y+9}" rx="11" ry="3" fill="rgb(0 0 0 / .14)"/>
+    ${pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="${i<no?8:6}" fill="${i<no?'rgb('+H().renk.b500+')':'#fff'}" stroke="rgb(${i<=no?H().renk.b500:H().renk.b100})" stroke-width="2.5"/>${i<no?`<path d="M${p[0]-3.5} ${p[1]}l2.4 2.6 4.6-5" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round"/>`:''}`).join("")}
+  </svg><img class="yurur zipla" src="${H().img}" alt="" style="width:32px;left:calc(${x/252*100}% - 16px);top:${y-30}px"></div>`;
 }
 function hatiralar(adet, yeniIndeks=-1){
   return `<div class="hatira-sira" aria-label="${adet} / 7 hatıra">${BOLUMLER.map((_,i)=>`<span class="hatira ${i<adet?'var':''} ${i===yeniIndeks?'yeni':''}">${i<adet?hatiraSvg(H().hatira):''}</span>`).join("")}</div>`;
 }
 const raf = (secili=-1) => `<div class="raf">${["1f34e","1f955","1f34c","1f347","1f966","1f95b","1f9c0","1f35e","1f955","1f34e","1f347","1f34c","1f35e","1f966","1f9c0","1f95b"].map((c,i)=>`<div class="${i===secili?'secili':''}"><img src="img/${c}.svg" alt=""></div>`).join("")}</div>`;
 const dok = '<div class="dok"><div class="cizgi"><i></i></div><span class="ileri">İleri →</span></div>';
-const cip = (bolum, adim, yard=false) => `<div class="cip">${yard?`<img src="${H().img}" alt="" style="width:20px;vertical-align:-5px;margin-right:4px">`:''}<b style="display:inline">${BOLUMLER[bolum-1]}</b><br>Bölüm ${bolum} / 7<br>Adım ${adim}</div>`;
+const cip = (bolum, adim, yard=false) => `<div class="cip">${yard?`<img src="${H().img}" alt="" style="width:16px;vertical-align:-3px;margin-right:3px">`:''}<b style="display:inline">${BOLUMLER[bolum-1]}</b><br>Bölüm ${bolum} / 7<br>Adım ${adim}</div>`;
 
 function ciz(){
   const h = H();
   const ad = h.ad.split(" ")[0];
+  const cumle = (t) => `<div class="k-alt" style="font-size:14px;color:rgb(${h.renk.b700})">${ad}: “${t}”</div>`;
+  const bugunBitti = (no) => ust(no,{bolum:false}) + `<div class="kart"><div class="isima" style="background:linear-gradient(rgb(255 139 107 / .35),transparent)"></div>
+      <div class="madalyon"><img src="img/1f388.svg" alt=""></div><div class="k-bas">Bölüm bitti!</div><div class="k-alt">Bölüm ${no} / 7 tamamlandı</div>
+      ${kartNoktalar(no)}<div class="k-alt">Sırada: ${BOLUMLER[no]}</div><div class="dugme">Devam et →</div></div>`;
 
   /* 1. geçiş */
   document.querySelector('[data-ciz="gecis"]').innerHTML = [
-    fig(tel("Bugün", false, ust(1) + `<div class="kart"><div class="isima" style="background:linear-gradient(rgb(255 139 107 / .35),transparent)"></div>
-      <div class="madalyon"><img src="img/1f388.svg" alt=""></div><div class="k-bas">Bölüm bitti!</div><div class="k-alt">Bölüm 1 / 7 tamamlandı</div>
-      <div class="noktalar" style="width:80%;margin:2px 0"> ${BOLUMLER.map((_,i)=>`<i class="${i<2?'on':''}"></i>`).join("")}</div>
-      <div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
-      "<b>Bugün:</b> balon resmi, her temada aynı."),
-    fig(tel("Öneri A", true, ust(1) + `<div class="kart" style="margin-top:14px;overflow:visible"><div class="isima"></div>
+    fig(tel("Bugün", "bugun", bugunBitti(1)), "<b>Bugün:</b> balon resmi, her temada aynı."),
+    fig(tel("Öneri A", "oneri", ust(1,{bolum:false}) + `<div class="kart" style="overflow:visible"><div class="isima"></div>
       <div class="madalyon buyuk zipla"><img src="${h.img}" alt=""></div>
-      <div class="k-bas">Bölüm bitti!</div><div class="k-alt" style="font-size:14px;color:rgb(${h.renk.b700})">${ad}: “Harika gidiyorsun!”</div>
-      <div class="k-alt">Bölüm 1 / 7 tamamlandı · Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
+      <div class="k-bas">Bölüm bitti!</div>${cumle("Harika gidiyorsun!")}
+      <div class="k-alt">Bölüm 1 / 7 tamamlandı</div>${kartNoktalar(1)}<div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
       "<b>Öneri A:</b> madalyonda seçilen hayvan zıplar, kısa bir cümle söyler. Cümle her bölümde aynı olabilir ya da 2-3 cümle sırayla döner."),
-    fig(tel("Öneri B · patika", true, ust(1) + `<div class="kart" style="margin-top:14px"><div class="isima"></div>
-      <div class="k-bas" style="margin-top:2px">Bölüm bitti!</div>
-      ${patika(1)}
-      <div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
+    fig(tel("Öneri B · patika", "oneri", ust(1,{bolum:false}) + `<div class="kart"><div class="isima"></div>
+      <div class="k-bas">Bölüm bitti!</div>${patika(1)}
+      <div class="k-alt">Bölüm 1 / 7 tamamlandı<br>Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`),
       "<b>Öneri B:</b> noktaların yerini 7 duraklı patika alır; hayvan bir sonraki durağa yürür. Çocuk ne kadar kaldığını görerek anlar."),
   ].join("");
 
-  /* 2. alıştırma */
+  /* 2. alıştırma — üç çerçevede aynı raf durumu, aynı başlık yüksekliği */
+  const rozetYeri = (img) => img ? `<div class="rozet" style="margin-top:44px"><img src="${img}" alt="">Alıştırma</div>` : `<div style="margin-top:44px;height:23px"></div>`;
   document.querySelector('[data-ciz="alistirma"]').innerHTML = [
-    fig(tel("Bugün", false, `${cip(2,"1 / 1")}${sesIkon}<div class="rozet" style="margin-top:44px"><img src="img/270f.svg" alt="">Alıştırma</div>
+    fig(tel("Bugün", "bugun", `${cip(2,"1 / 1")}${sesIkon}${rozetYeri("img/270f.svg")}
       <div class="soru" style="margin-top:6px">Elmayı bul!</div>${raf()}${dok}`),
       "<b>Bugün:</b> alıştırma sahnesinde yalnız kesikli “Alıştırma” rozeti var."),
-    fig(tel("Öneri · alıştırma", true, `${cip(2,"1 / 1")}${sesIkon}<div class="rozet" style="margin-top:44px"><img src="${h.img}" alt="">Alıştırma</div>
-      <div class="soru" style="margin-top:6px">Elmayı bul!</div>${raf(0)}${dok}
+    fig(tel("Öneri · alıştırma", "oneri", `${cip(2,"1 / 1")}${sesIkon}${rozetYeri("img/270f.svg")}
+      <div class="soru" style="margin-top:6px">Elmayı bul!</div>${raf()}${dok}
       <div class="yard goz-at" style="width:62px;left:6px;bottom:44px"><img src="${h.img}" alt=""></div>
       <div class="balon sag" style="left:72px;bottom:78px">Birlikte deneyelim!</div>`),
-      `<b>Öneri:</b> alıştırmada ${h.ad} sol alttan gözükür. Rozet de hayvanın resmini taşır. Doğru ya da yanlışa göre tepki vermez.`),
-    fig(tel("Öneri · gerçek soru", true, `${cip(2,"3 / 12",true)}${sesIkon}
-      <div class="soru" style="margin-top:62px">Elmayı bul!</div>${raf()}${dok}`),
+      `<b>Öneri:</b> alıştırmada ${h.ad} sol alttan gözükür ve kısa bir cümle söyler. Doğru ya da yanlışa göre tepki vermez.`),
+    fig(tel("Öneri · gerçek soru", "oneri", `${cip(2,"3 / 12",true)}${sesIkon}${rozetYeri(null)}
+      <div class="soru" style="margin-top:6px">Elmayı bul!</div>${raf()}${dok}`),
       "<b>Gerçek sorular:</b> hayvan yalnız köşedeki çipte küçük ve hareketsiz. Soru alanı bugünkü kadar sade kalır."),
   ].join("");
 
   /* 3. arka plan */
-  const gecisKart = (tag) => ust(1) + `<div class="kart" style="margin-top:14px;background:rgb(255 255 255 / .94)"><div class="isima"></div>
+  const gecisKart = ust(1,{bolum:false}) + `<div class="kart" style="background:rgb(255 255 255 / .94)"><div class="isima"></div>
       <div class="madalyon buyuk"><img src="${h.img}" alt=""></div><div class="k-bas">Bölüm bitti!</div>
-      <div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`;
+      <div class="k-alt">Bölüm 1 / 7 tamamlandı</div>${kartNoktalar(1)}<div class="k-alt">Sırada: Mini Market</div><div class="dugme">Devam et →</div></div>`;
+  const soru = `${cip(2,"3 / 12",true)}${sesIkon}<div style="margin-top:44px;height:23px"></div><div class="soru" style="margin-top:6px">Elmayı bul!</div>${raf()}${dok}`;
   document.querySelector('[data-ciz="arkaplan"]').innerHTML = [
-    fig(tel("Geçiş · dünya resmi", true, gecisKart(), {dunya:true}),
-      `<b>Geçiş ve alıştırma ekranları:</b> Seçilen hayvanın dünyası tam görünür. Önerimiz bu.`),
-    fig(tel("Soru · kenarda soluk", true, `${cip(2,"3 / 12",true)}${sesIkon}<div class="soru" style="margin-top:62px">Elmayı bul!</div>${raf()}${dok}`, {dunya:true, dunyaSinif:"soluk kenar"}),
-      "<b>Seçenek:</b> gerçek soruda resim yalnız üst ve alt kenarda, çok soluk. Raf alanı boş kalır."),
-    fig(tel("Soru · tam resim", false, `${cip(2,"3 / 12",true)}${sesIkon}<div class="soru" style="margin-top:62px">Elmayı bul!</div>${raf()}${dok}`, {dunya:true}),
-      "<b>Önermiyoruz:</b> soru ekranında tam resim. Görsel kalabalık, özellikle Mini Market ve Görev Kartları'nda aranan nesneyle yarışır."),
+    fig(tel("Geçiş · dünya resmi", "oneri", gecisKart, {dunya:true}),
+      `<b>Geçiş ve alıştırma ekranları:</b> seçilen hayvanın dünyası tam görünür. Önerimiz bu.`),
+    fig(tel("Soru · ince üst şerit", "oneri", soru, {dunya:true, dunyaSinif:"soluk kenar"}),
+      "<b>Seçenek:</b> gerçek soruda dünyadan yalnız üst köşede çok soluk bir iz kalır; raf ve düğme alanı boş."),
+    fig(tel("Önermiyoruz · tam resim", "hayir", soru, {dunya:true, kalabalik:true}),
+      "<b>Önermiyoruz:</b> soru ekranında tam resim. Rafın arkasındaki öğeler aranan nesneyle yarışır; Mini Market ve Görev Kartları'nda dikkat ölçümünü bozar."),
   ].join("");
 
   /* 4. hatıra */
   document.querySelector('[data-ciz="hatira"]').innerHTML = [
-    fig(tel("Bölüm bitti", true, ust(3) + `<div class="kart" style="margin-top:14px"><div class="isima"></div>
+    fig(tel("Bugün", "bugun", bugunBitti(3)), "<b>Bugün:</b> bölüm sonunda hatıra yok; ilerleme noktalarla gösterilir."),
+    fig(tel("Öneri · bölüm bitti", "oneri", ust(3,{bolum:false}) + `<div class="kart"><div class="isima"></div>
       <div style="position:relative"><div class="madalyon buyuk zipla"><img src="${h.img}" alt=""></div>
-      <span class="hatira var yeni" style="position:absolute;right:-14px;bottom:-4px;width:38px;height:38px">${hatiraSvg(h.hatira).replace('<svg','<svg style="width:24px;height:24px"')}</span></div>
-      <div class="k-bas">Bölüm bitti!</div><div class="k-alt" style="color:rgb(${h.renk.b700})">${ad}: “Bu senin için!”</div>
-      ${hatiralar(3,2)}<div class="dugme">Devam et →</div></div>`),
-      "<b>Bölüm bitti:</b> hayvan yeni hatırayı uzatır; kartın altında toplananlar sıralanır (3 / 7)."),
-    fig(tel("Tarama sonu", true, `<div class="logo" style="margin-top:10px"><img src="${h.img}" alt="">date</div>
-      <div class="kart" style="margin-top:30px;gap:10px"><div class="isima"></div>
+      <span class="hatira var yeni" style="position:absolute;right:-14px;bottom:-4px;width:40px;height:40px">${hatiraSvg(h.hatira).replace('<svg','<svg style="width:28px;height:28px"')}</span></div>
+      <div class="k-bas">Bölüm bitti!</div>${cumle("Bu senin için!")}
+      <div class="k-alt">Bölüm 3 / 7 tamamlandı</div>${hatiralar(3,2)}<div class="k-alt">Sırada: ${BOLUMLER[3]}</div><div class="dugme">Devam et →</div></div>`),
+      "<b>Bölüm bitti:</b> hayvan yeni hatırayı uzatır; toplananlar noktaların yerini alır (3 / 7)."),
+    fig(tel("Öneri · tarama sonu", "oneri", ust(7,{bolum:false}) + `<div class="kart" style="gap:10px"><div class="isima"></div>
       <div class="madalyon buyuk el-salla"><img src="${h.img}" alt=""></div><div class="k-bas">Tarama tamamlandı</div>
-      <div class="k-alt" style="color:rgb(${h.renk.b700})">${ad}: “Bütün hatıraları topladın!”</div>
+      ${cumle("Bütün hatıraları topladın!")}
       ${hatiralar(7)}<div class="k-alt" style="margin-top:6px">Sonuç, taramayı başlatan hesabın panelinde görülebilir.</div></div>`),
       "<b>Tarama sonu:</b> yedi hatıra birlikte; hayvan el sallar. Cevaplardan bağımsız, herkes yedisini de toplar."),
   ].join("");
 
   /* 5. bekleme + dönüş */
+  const donus = (madalyon, baslik, alt) => ust(4) + `<div class="kart"><div class="isima" style="background:linear-gradient(rgb(87 217 176 / .4),transparent)"></div>
+      ${madalyon}<div class="k-bas">${baslik}</div><div class="k-alt">${alt}</div>
+      <div class="k-alt" style="background:rgb(var(--b50));border-radius:99px;padding:2px 12px">Adım 3 / 7'den devam</div><div class="dugme">Devam et →</div></div>`;
   document.querySelector('[data-ciz="bekleme"]').innerHTML = [
-    fig(tel("Bugün · bekleme", false, `${cip(2,"1 / 1")}${sesIkon}<div style="margin:auto;text-align:center"><img src="img/1f6d2.svg" alt="" style="width:64px"><div class="k-bas" style="color:rgb(var(--ink) / .62)">Raf geliyor…</div></div>`),
+    fig(tel("Bugün · bekleme", "bugun", `${cip(2,"1 / 1")}${sesIkon}<div style="margin:auto;text-align:center"><img src="img/1f6d2.svg" alt="" style="width:64px"><div class="k-bas" style="color:rgb(var(--ink) / .62)">Raf geliyor…</div></div>`),
       "<b>Bugün:</b> beklemede genel bir simge."),
-    fig(tel("Öneri · bekleme", true, `${cip(2,"1 / 1")}${sesIkon}<div style="margin:auto;text-align:center"><img class="nefes" src="${h.img}" alt="" style="width:78px"><div class="k-bas" style="color:rgb(var(--ink) / .62)">Raf geliyor…</div></div>`),
+    fig(tel("Öneri · bekleme", "oneri", `${cip(2,"1 / 1")}${sesIkon}<div style="margin:auto;text-align:center"><img class="nefes" src="${h.img}" alt="" style="width:78px"><div class="k-bas" style="color:rgb(var(--ink) / .62)">Raf geliyor…</div></div>`),
       "<b>Öneri:</b> hayvan sakince nefes alır. Zıplamaz; bekleme sakin kalsın."),
-    fig(tel("Öneri · dönüş", true, ust(4) + `<div class="kart" style="margin-top:14px"><div class="isima" style="background:linear-gradient(rgb(87 217 176 / .4),transparent)"></div>
-      <div class="madalyon buyuk el-salla"><img src="${h.img}" alt=""></div><div class="k-bas">Tekrar hoş geldin!</div>
-      <div class="k-alt">Kaldığın yerden devam edelim.</div><div class="dugme">Devam et →</div></div>`),
-      "<b>Yarım tarama dönüşü:</b> bugünkü iğne simgesi yerine hayvan el sallar (metin TASLAK)."),
+    fig(tel("Bugün · dönüş", "bugun", donus(`<div class="madalyon" style="background:linear-gradient(rgb(87 217 176 / .5),rgb(255 203 69 / .35))"><span style="font-size:30px">📌</span></div>`, "Tekrar hoş geldin!", "Kaldığın yerden devam ediyoruz.")),
+      "<b>Bugün · yarım tarama dönüşü:</b> iğne simgesi; metin bugünküyle aynı."),
+    fig(tel("Öneri · dönüş", "oneri", donus(`<div class="madalyon buyuk el-salla"><img src="${h.img}" alt=""></div>`, "Tekrar hoş geldin!", "Kaldığın yerden devam ediyoruz.")),
+      "<b>Öneri:</b> metin aynı kalır, iğne yerine hayvan el sallayarak çocuğu karşılar."),
   ].join("");
 }
 
@@ -419,6 +457,7 @@ HAYVANLAR.forEach(h=>{
   b.onclick=()=>sec(h.id); secici.appendChild(b);
 });
 let ilk = "sincap"; try{ ilk = localStorage.getItem("maket-hayvan") || ilk; }catch(e){}
+document.querySelectorAll(".tablo").forEach(t=>{const b=[...t.querySelectorAll("th")].map(x=>x.textContent);t.querySelectorAll("tbody tr").forEach(r=>[...r.children].forEach((td,i)=>td.dataset.baslik=b[i]));});
 sec(ilk);
 </script>
 </body>
