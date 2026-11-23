@@ -66,7 +66,9 @@ jobs:
           baslik=$(git log -1 --pretty=%s)
           # KAN-334: her madde " — Nerede: Modül n Ad · Adım x/y" taşır (yayın notu denetimden
           # geçer). Konum ayrı satıra, 📍 ile ve italik alınır — PM nerede deneyeceğini görür.
-          govde=$(git log -1 --pretty=%b | sed '/^Co-Authored-By:/d' | sed '/^[[:space:]]*$/d' \
+          # Boş satırlar KORUNUR (art arda olanlar teke iner): ayrıntılı notta bölümler Slack'te
+          # ayrı paragraf görünsün (ürün sahibi 2026-11-23: notlar daha anlaşılır ve ayrıntılı).
+          govde=$(git log -1 --pretty=%b | sed '/^Co-Authored-By:/d' | cat -s \
             | perl -pe 's/ — Nerede: (.*)$/\n      📍 _$1_/')
           # Ay adı koşucunun yerel ayarına göre İNGİLİZCE gelir; sayısal biçim
           # dilden bağımsız ve PM için okunaklıdır.
